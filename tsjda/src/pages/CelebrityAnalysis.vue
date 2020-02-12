@@ -1,6 +1,10 @@
 <template>
     <div class="mainBody">
-      <CaNav class="nav" width="1400px" @is-collapsed="checkIsCollapsed"></CaNav>
+      <CaNav
+        class="nav"
+        width="1400px"
+        @is-collapsed="checkIsCollapsed"
+      ></CaNav>
       <el-row class="CA-Main" ref="CAMain" >
         <el-col :span="3" class="menuBlock">
           <el-menu
@@ -20,8 +24,12 @@
                 <span slot="title">微博排行榜</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="博主影响力排行榜"><span style="font-size: 13px;">博主影响力排行榜</span></el-menu-item>
-                <el-menu-item index="广告微博排行榜"><span style="font-size: 13px;">广告微博排行榜</span></el-menu-item>
+                <el-menu-item index="博主影响力排行榜">
+                  <span style="font-size: 13px;">博主影响力排行榜</span>
+                </el-menu-item>
+                <el-menu-item index="广告微博排行榜">
+                  <span style="font-size: 13px;">广告微博排行榜</span>
+                </el-menu-item>
               </el-menu-item-group>
             </el-submenu>
 
@@ -31,10 +39,18 @@
                 <span slot="title">电商数据分析</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="商品搜索"><span style="font-size: 13px;">商品搜索</span></el-menu-item>
-                <el-menu-item index="商品排行榜"><span style="font-size: 13px;">商品排行榜</span></el-menu-item>
-                <el-menu-item index="电商达人排行榜"><span style="font-size: 13px;">电商达人排行榜</span></el-menu-item>
-                <el-menu-item index="团购排行榜"><span style="font-size: 13px;">团购排行榜</span></el-menu-item>
+                <el-menu-item index="商品搜索">
+                  <span style="font-size: 13px;">商品搜索</span>
+                </el-menu-item>
+                <el-menu-item index="商品排行榜">
+                  <span style="font-size: 13px;">商品排行榜</span>
+                </el-menu-item>
+                <el-menu-item index="电商达人排行榜">
+                  <span style="font-size: 13px;">电商达人排行榜</span>
+                </el-menu-item>
+                <el-menu-item index="团购排行榜">
+                  <span style="font-size: 13px;">团购排行榜</span>
+                </el-menu-item>
               </el-menu-item-group>
             </el-submenu>
 
@@ -48,7 +64,12 @@
             </el-menu-item>
           </el-menu>
         </el-col>
-        <el-col id="mainBody" :span="21" class="mainBody" ref="mainBody" style="margin-top: 69px;z-index: -2;">
+        <el-col
+          class="mainBody"
+          id="mainBody"
+          :span="21"
+          ref="mainBody"
+          style="margin-top: 69px;z-index: -2;">
           <router-view/>
         </el-col>
 <!--        <el-col ref="userInfo" class="userInfo" :span="5">-->
@@ -140,7 +161,6 @@
         methods:{
             checkIsCollapsed(data){
                 this.isCollapse = data;
-
             },
             handleOpen(key, keyPath) {
                 console.log(key, keyPath);
