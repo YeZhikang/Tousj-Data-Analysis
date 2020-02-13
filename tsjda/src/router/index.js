@@ -26,6 +26,10 @@ import LoginRegister from "../pages/LoginRegister";
 import TheLogin from "../components/UserMonitor/TheLogin";
 import TheRegister from "../components/UserMonitor/TheRegister";
 import NotLogin from "../pages/NotLogin";
+import MobileLogReg from "../mobile/pages/MobileLogReg";
+import MobileLogin from "../mobile/components/MobileLogin";
+import MobileIndex from "../mobile/components/MobileIndex";
+import MobileMainBody from "../mobile/components/MobileMainBody";
 
 Vue.use(Router)
 
@@ -204,6 +208,34 @@ export default new Router({
       name:"NotLogin",
       component:NotLogin,
       path:"/NotLogin"
+    },
+    {
+      name:"MobileSign",
+      path:"/m/sign",
+      component: MobileLogReg,
+      redirect:"/m/sign/login",
+      children:[
+        {
+          name:"MobileLogin",
+          component:MobileLogin,
+          path: "/m/sign/login"
+        }
+      ]
+    },
+    {
+      name:"MobileMainBody",
+      path:"/m/main",
+      component:MobileMainBody,
+      redirect: {
+        name: "MobileIndex"
+      },
+      children:[
+        {
+          name: "MobileIndex",
+          path:"/m/main/index",
+          component:MobileIndex
+        }
+      ]
     }
   ]
 })

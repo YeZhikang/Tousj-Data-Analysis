@@ -25,9 +25,11 @@
     export default {
         name: "LoginRegister",
         methods:{
-
         },
         mounted() {
+            if(this.$store.state.isMobile){
+                this.$router.push({name:"MobileLogin"})
+            }
             this.$axios.get('/').then(res => {
                 console.log(res)
             }).catch(error => {

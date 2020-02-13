@@ -1,0 +1,31 @@
+.sp{
+  font:400 1em/1.8 Avenir,Tahoma,Arial,PingFang SC,Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,Helvetica,sans-serif;
+  margin: 0;
+}
+
+
+.default{
+  text-decoration: none;
+}
+
+.default:link{
+  color: darkgrey;
+  font-weight: 400;
+}
+.default:visited{
+  color: darkgrey;
+  font-weight: 400;
+}
+.default:hover{
+  color: #337ecb;
+  font-weight: 500;
+}
+.default:active{
+  color: #337ecb;
+  font-weight: 500;
+}
+
+.active{
+  color: #3a8ee6;
+  font-weight: 500;
+}

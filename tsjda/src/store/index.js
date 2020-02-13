@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state:{
@@ -14,7 +15,8 @@ const store = new Vuex.Store({
     userInfo:{
       userName:"",
       password:""
-    }
+    },
+    isMobile:false
   },
   getters:{
     getBaseItem: state => {
@@ -44,6 +46,14 @@ const store = new Vuex.Store({
     changeUserInfo( state,userInfoObj ){
       state.userInfo = userInfoObj
     },
+    judgeIsMobile( state,bool ){
+      state.isMobile = bool
+    },
+    turnToMobile( state,router ){
+      if(state.isMobile){
+        router.push({ name:"MobileLogin" })
+      }
+    }
   },
   actions:{
     changeBaseItem(context,newItem){

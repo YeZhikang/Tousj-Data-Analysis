@@ -103,6 +103,9 @@
             }
         },
         mounted(){
+            if(this.$store.state.isMobile){
+                this.$router.push({name:"MobileIndex"})
+            }
             this.windowAddMouseWheel();
         },
         methods:{

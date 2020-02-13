@@ -35,13 +35,26 @@ Vue.filter("numCap",function (val) {
 });
 
 router.beforeEach((to,from,next)=>{
-  if(to.name !== "register" && to.name !== "index" && to.name !== 'login' && to.name !== "NotLogin"){
+  let bool = false
+  let ua = navigator.userAgent;
+  let isMobileAgent_Re = [/(iPad).*OS\s([\d_]+)/,/(iPhone\sOS)\s([\d_]+)/,/(Android)\s+([\d.]+)/];
+  // isMobileAgent_Re.forEach(item => {
+  for(let item of isMobileAgent_Re){
+    if(ua.match(item) && store.state.isMobile !== true){
+      bool = true
+      break
+    }
+  }
+  if(to.name !== "register" && to.name !== "index" && to.name !== 'login' && to.name !== "NotLogin" && to.name !== "MobileLogin"){
     let userName = localStorage.getItem("userName");
     console.log(userName)
     if(!userName){
       router.push({name:"NotLogin"})
     }
   }
+  store.commit("judgeIsMobile",bool);
+
+  console.log(store.state.isMobile)
   next()
 });
 
