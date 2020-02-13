@@ -41,7 +41,7 @@
     justify-content: space-between;
   }
   .container{
-    background-color: rgb(222, 222, 222);
+    background-color: rgb(244, 244, 244);
     height: 100%;
   }
 

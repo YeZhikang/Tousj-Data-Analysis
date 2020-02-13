@@ -25,7 +25,6 @@
         <el-button
           ref="loginButton"
           @click="submitForm()"
-          size="small"
           type="primary"
           style="width: 100%;"
           plain
@@ -33,7 +32,6 @@
       </el-col>
       <el-col :span="11" >
         <el-button
-          size="small"
           type="warning"
           style="width: 100%;"
           @click="turnToRegister()"
@@ -96,7 +94,6 @@
 
   >>>.el-input-group__append{
     background-color: white;
-
   }
 
   >>>.el-input-group__prepend{

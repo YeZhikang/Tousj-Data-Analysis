@@ -1,9 +1,9 @@
 <template>
     <div>
-      <div class="DC-son">
+      <div class="DC-son" style="text-align: left">
         <div class="son-intro">
-          <h4>数据概览
-            <small>上次更新时间：{{refreshTime}}
+          <h4>数据概览<br>
+            <small style="margin-left: 0">上次更新时间：{{refreshTime}}
               <el-button
                 type="text"
                 icon="el-icon-refresh">
@@ -54,15 +54,13 @@
         </div>
         <div class="graph graph1">
           <section>
-
-              <chart
-
-                :options="postLine"
-                :init-options="initOptions"
-                ref="postLine"
-                autoresize
-              />
-
+            <chart
+              :height="height"
+              :options="postLine"
+              :init-options="initOptions"
+              ref="postLine"
+              autoresize
+            />
           </section>
         </div>
       </div>
@@ -82,13 +80,13 @@
         </div>
         <div class="graph graph2">
           <section>
-              <chart
+            <chart
 
-                :options="likeLine"
-                :init-options="initOptions"
-                ref="likeLine"
-                autoresize
-              />
+              :options="likeLine"
+              :init-options="initOptions"
+              ref="likeLine"
+              autoresize
+            />
           </section>
         </div>
       </div>
@@ -146,45 +144,23 @@
           </section>
         </div>
       </div>
-
-<!--      <div class="DC-Block">-->
-<!--        <div class="DC-son-next">-->
-<!--          <div class="son-intro">-->
-<!--            <h4>粉丝终端分析</h4>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          <section>-->
-<!--            <chart-->
-<!--              :options="equipPie"-->
-<!--              :init-options="initOptions"-->
-<!--              ref="pie"-->
-<!--              autoresize-->
-<!--            />-->
-<!--          </section>-->
-<!--        </div>-->
-<!--      </div>-->
     </div>
 </template>
 
 <script>
-    import ECharts from '../components/charts/Echarts'
-    import likeLine from "../data/likeLine";
-    import commentLine from "../data/commentLine";
-    import repostLine from "../data/repostLine";
-    import postLine from '../data/postLine';
-    import equipPie from '../data/pie';
+    import ECharts from '../../components/charts/Echarts2'
+    import likeLine from "../../data/likeLine";
+    import commentLine from "../../data/commentLine";
+    import repostLine from "../../data/repostLine";
+    import postLine from '../../data/postLine';
+    import equipPie from '../../data/pie';
     import { Loading } from 'element-ui';
 
     export default {
-        name: "DataCount",
+        name: "MobileDataAnalysis",
         components:{
             chart: ECharts
         },
-        props:{
-            compareBloggerId:String
-        },
-
         data(){
             return {
                 loadingComment:true,
@@ -479,9 +455,15 @@
     width: 100%;
   }
 
+  .graph5{
+    margin-top: 15px;
+  }
+
   .graph{
     padding: 15px 10px 5px 10px;
     border: 1px dashed rgb(230,230,230);
+    margin-top: 15px;
+
   }
 
   .DC-son-next{
@@ -498,5 +480,13 @@
   .DC-son-next h4{
     margin-top: 20px;
   }
+  .time-data-block h5{
+    margin:0 0 8px 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: #898989;
+  }
+
+
 
 </style>

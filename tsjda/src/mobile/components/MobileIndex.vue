@@ -1,5 +1,5 @@
 <template>
-    <div style="text-align: left">
+    <div style="text-align: left;padding: 25px">
       <div class="sectionBanner">
         <div class="sectionBanner__heading">
           <h1 class="sp">网红价值</h1>
@@ -23,11 +23,39 @@
 
 <script>
     import "../../static/Mobile.css"
+    import ECharts from '../../components/charts/Echarts'
+    import dateData from '../../data/indexData'
+    import commentLine from "../../data/commentLine";
+
     export default {
         name: "MobileIndex",
+        components:{
+            chart: ECharts
+        },
         data(){
             return{
-                userAvatarURL:"https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                userAvatarURL:"https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
+                commentLine:null
+            }
+        },
+        methods:{
+            getRandomLikeArray(day){
+                let newArray = [];
+                for(let i = 0;i<day;i++){
+                    newArray.push(Math.round( Math.random() * 300000) / 10)
+                }
+                return newArray
+            },
+            getCommentLine(date,data){
+                // let choiceDay = this.choiceDay(val);
+                let newCommentLine = commentLine;
+                newCommentLine.series.data = data;
+                newCommentLine.xAxis[0].data = date
+                return newCommentLine
+            },
+            makeChart(){
+                let dataValue = this.getRandomLikeArray(dateData.length);
+                this.getCommentLine(dateData,dataValue);
             }
         }
     }

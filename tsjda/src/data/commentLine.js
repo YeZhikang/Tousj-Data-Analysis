@@ -32,7 +32,11 @@ export default {
       type : 'value',
       axisLabel : {
         formatter: '{value}'
-      }
+      },
+      axisTick: {
+        inside: true
+      },
+      scale: true
     }
   ],
   series: {

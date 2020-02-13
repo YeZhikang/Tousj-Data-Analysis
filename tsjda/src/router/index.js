@@ -30,6 +30,12 @@ import MobileLogReg from "../mobile/pages/MobileLogReg";
 import MobileLogin from "../mobile/components/MobileLogin";
 import MobileIndex from "../mobile/components/MobileIndex";
 import MobileMainBody from "../mobile/components/MobileMainBody";
+import MobileCelebrityAnalysis from "../mobile/components/MobileCelebrityAnalysis";
+import MobileBloggerSearch from "../mobile/components/MobileBloggerSearch";
+import MobileDataCount from "../mobile/components/MobileDataCount";
+import MobileDataAnalysis from "../mobile/components/MobileDataAnalysis";
+import MobileFansPortrait from "../mobile/components/MobileFansPortrait";
+import MobileHistoryBlog from "../mobile/components/MobileHistoryBlog";
 
 Vue.use(Router)
 
@@ -234,6 +240,46 @@ export default new Router({
           name: "MobileIndex",
           path:"/m/main/index",
           component:MobileIndex
+        },
+        {
+          name: "MobileCelebrityAnalysis",
+          path: "/m/main/celebrityAnalysis",
+          component:MobileCelebrityAnalysis,
+          redirect:{
+            name: "手机端博主搜索"
+          },
+          children:[
+            {
+              path:"/m/main/celebrityAnalysis/博主搜索",
+              name: "手机端博主搜索",
+              component:MobileBloggerSearch
+            },
+            {
+              path:"/m/main/celebrity/Analysis/数据统计",
+              name: "手机端数据统计",
+              component: MobileDataCount,
+              redirect:{
+                name: "手机端数据分析"
+              },
+              children:[
+                {
+                  path:"/m/main/celebrityAnalysis/数据统计/手机端数据分析",
+                  name: "手机端数据分析",
+                  component:MobileDataAnalysis
+                },
+                {
+                  path:"/m/main/celebrityAnalysis/数据统计/手机端历史微博",
+                  name: "手机端历史微博",
+                  component:MobileHistoryBlog
+                },
+                {
+                  path:"/m/main/celebrityAnalysis/数据统计/手机端粉丝画像",
+                  name: "手机端粉丝画像",
+                  component:MobileFansPortrait
+                }
+              ]
+            }
+          ]
         }
       ]
     }
