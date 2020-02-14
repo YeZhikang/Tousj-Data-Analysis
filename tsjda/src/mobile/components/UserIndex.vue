@@ -57,7 +57,7 @@
         name: "UserIndex",
         data(){
             return{
-                userName: "Yezhikang",
+                userName: localStorage.getItem("userName"),
                 viewHistory: this.$store.state.viewHistory
             }
         },

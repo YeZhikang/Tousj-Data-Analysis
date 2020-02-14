@@ -9,13 +9,13 @@
         <img src="../../assets/faviconn3.png" style="height: 40px">
         <ul>
           <li><router-link :to="{name: 'MobileIndex'}" :class="{'default':true,'active':routeArr[0]}"><a ref="MobileIndex">首页</a></router-link></li>
-          <li><router-link :to="{name: 'da'}" :class="{'default':true,'active':routeArr[1]}"><a ref="da">数据分析</a></router-link></li>
+          <li><router-link :to="{name: 'NotFound'}" :class="{'default':true,'active':routeArr[1]}"><a ref="da" >数据分析</a></router-link></li>
           <li><router-link :to="{name: 'MobileCelebrityAnalysis'}" :class="{'default':true,'active':routeArr[2]}"><a ref="MobileCelebrityAnalysis">网红价值</a></router-link></li>
         </ul>
         <div v-if="userName">
           <el-dropdown size="small" trigger="click">
             <el-button type="text" style="height: 44px;padding: 0">
-              <el-avatar >yezhikang</el-avatar>
+              <el-avatar >{{userName}}</el-avatar>
             </el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>

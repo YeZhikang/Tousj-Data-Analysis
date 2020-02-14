@@ -38,6 +38,7 @@ import MobileFansPortrait from "../mobile/components/MobileFansPortrait";
 import MobileHistoryBlog from "../mobile/components/MobileHistoryBlog";
 import MobileRegister from "../mobile/components/MobileRegister";
 import UserIndex from "../mobile/components/UserIndex";
+import NotFound from "../pages/NotFound";
 
 Vue.use(Router)
 
@@ -218,6 +219,11 @@ export default new Router({
       path:"/NotLogin"
     },
     {
+      name:"NotFound",
+      component:NotFound,
+      path:"/NotFound"
+    },
+    {
       name:"MobileSign",
       path:"/m/sign",
       component: MobileLogReg,
@@ -292,7 +298,8 @@ export default new Router({
           name: "MobileUserIndex",
           path:"/m/main/userIndex",
           component:UserIndex
-        }
+        },
+
       ]
     }
   ]

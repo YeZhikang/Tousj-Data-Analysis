@@ -4,8 +4,8 @@
     <div style="height: 100%;display: flex;align-items: center;justify-content: center" >
       <el-card style="padding: 5px 15px">
         <div>
-          <h2>Ooops!你还没有登陆</h2>
-          <p>此页面将跳转至登陆界面，{{time}}秒后跳转 <i class="el-icon-loading"></i></p>
+          <h2>Ooops!页面找不到了</h2>
+          <p>此页面将跳转至首页，{{time}}秒后跳转 <i class="el-icon-loading"></i></p>
           <el-link type="primary" @click="clickToRedirect">点击此处跳转</el-link>
         </div>
       </el-card>
@@ -15,7 +15,7 @@
 
 <script>
     export default {
-        name: "NotLogin",
+        name: "NotFound",
         data(){
             return{
                 time:5,
@@ -30,17 +30,13 @@
                     this.time = timeRemaing
                     if(this.time === -1){
                         clearInterval(this.interval)
-                        if(this.$store.state.isMobile){
-                            this.$router.push({name:"MobileLogin"})
-                        }else {
-                            this.$router.push({name: "login"})
-                        }
+                        this.$router.push({name:"MobileIndex"})
                     }
                 },1000)
             },
             clickToRedirect(){
                 clearInterval(this.interval)
-                let name = this.$store.state.isMobile ? 'MobileLogin' :  'login'
+                let name = this.$store.state.isMobile ? 'MobileIndex' :  'index'
                 this.$router.push({
                     name: name
                 })

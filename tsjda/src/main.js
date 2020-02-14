@@ -45,13 +45,14 @@ router.beforeEach((to,from,next)=>{
       break
     }
   }
-  if(to.name !== "register" && to.name !== "index" && to.name !== 'login' && to.name !== "NotLogin" && to.name !== "MobileLogin"){
+  if(to.name !== "register" && to.name !== "index" && to.name !== 'login' && to.name !== "NotLogin" && to.name !== "MobileLogin" && to.name !== "MobileIndex" && to.name !== "MobileRegister"){
     let userName = localStorage.getItem("userName");
     console.log(userName)
     if(!userName){
       router.push({name:"NotLogin"})
     }
   }
+
   store.commit("judgeIsMobile",bool);
 
   console.log(store.state.isMobile)
