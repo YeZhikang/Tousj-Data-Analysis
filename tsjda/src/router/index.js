@@ -36,6 +36,8 @@ import MobileDataCount from "../mobile/components/MobileDataCount";
 import MobileDataAnalysis from "../mobile/components/MobileDataAnalysis";
 import MobileFansPortrait from "../mobile/components/MobileFansPortrait";
 import MobileHistoryBlog from "../mobile/components/MobileHistoryBlog";
+import MobileRegister from "../mobile/components/MobileRegister";
+import UserIndex from "../mobile/components/UserIndex";
 
 Vue.use(Router)
 
@@ -225,6 +227,11 @@ export default new Router({
           name:"MobileLogin",
           component:MobileLogin,
           path: "/m/sign/login"
+        },
+        {
+          name:"MobileRegister",
+          component:MobileRegister,
+          path: "/m/sign/register"
         }
       ]
     },
@@ -280,6 +287,11 @@ export default new Router({
               ]
             }
           ]
+        },
+        {
+          name: "MobileUserIndex",
+          path:"/m/main/userIndex",
+          component:UserIndex
         }
       ]
     }

@@ -11,15 +11,14 @@
 
 .default{
   text-decoration: none;
+  color: darkgrey;
+  font-weight: 400;
 }
 
 .default:link{
-  color: darkgrey;
-  font-weight: 400;
+
 }
 .default:visited{
-  color: darkgrey;
-  font-weight: 400;
 }
 .default:hover{
   color: #337ecb;
@@ -32,7 +31,7 @@
 
 .active{
   color: #3a8ee6;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .nav-default{

@@ -13,7 +13,7 @@ import './static/index.css'
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
-Vue.use(axios);
+Vue.prototype.$http = axios;
 axios.defaults.baseURL = 'http://121.43.155.100:8081/';
 Vue.prototype.$axios = axios;
 Vue.prototype.$echarts = echarts;

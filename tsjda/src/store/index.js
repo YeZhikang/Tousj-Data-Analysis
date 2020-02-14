@@ -16,7 +16,8 @@ const store = new Vuex.Store({
       userName:"",
       password:""
     },
-    isMobile:false
+    isMobile:false,
+    viewHistory:[]
   },
   getters:{
     getBaseItem: state => {
@@ -53,6 +54,11 @@ const store = new Vuex.Store({
       if(state.isMobile){
         router.push({ name:"MobileLogin" })
       }
+    },
+    updateViewHistory( state,celebrityInfo ){
+      const viewHistory = state.viewHistory;
+      viewHistory.push(celebrityInfo);
+      state.viewHistory = viewHistory
     }
   },
   actions:{

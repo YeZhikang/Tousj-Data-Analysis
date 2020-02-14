@@ -33,13 +33,14 @@
             style="width: 100%">
             <el-table-column
               label="微博博主"
-              >
+              :show-overflow-tooltip="true"
+            >
               <template v-slot="scope">
                 <el-button
                   type="text"
                   @click="turnToGraph(scope.row)"
                 >
-                  {{scope.row.userName}}
+                  <span style="white-space:nowrap; overflow:hidden;text-overflow:clip;width: 100%">{{scope.row.userName}}</span>
                 </el-button>
               </template>
             </el-table-column>
@@ -53,10 +54,13 @@
               </template>
             </el-table-column>
             <el-table-column
-              prop="fansNum"
               label="粉丝人数">
+              <template v-slot="scope">
+                <el-tag type="warning">
+                  {{scope.row.fansNum}}
+                </el-tag>
+              </template>
             </el-table-column>
-
           </el-table>
         </el-col>
       </el-row>
@@ -95,6 +99,7 @@
                 },250)
             },
             turnToGraph(user){
+                this.$store.commit('updateViewHistory',user);
                 this.$router.push({
                     name:"手机端数据统计",
                     /*

@@ -6,7 +6,6 @@
             @click="drawer = true"
             icon="el-icon-menu"
             type="primary"
-            :size="80"
             style="position: fixed;z-index: 999"
             circle
             plain
@@ -27,7 +26,7 @@
         :with-header="false">
         <ul ref="mainPart"  class="drawer-menu cav">
             <div v-if="!isRedirect2">
-              <a v-for="(item) in menuItem" :key="item">
+              <a v-for="(item,index) in menuItem" :key="index">
                 <li @click="changeRedir(item)">{{item.par}}
                   <i v-if="item.children" class="el-icon-arrow-right"></i>
                 </li>
@@ -61,12 +60,12 @@
               <el-col
                 :span="24"
                 style="text-align: left">
-                <router-link class="nav-default" to="/m/main/celebrityAnalysis">
+                <a class="nav-default" to="/m/main/celebrityAnalysis">
                   <li>浙ICP备12345678号</li>
-                </router-link>
-                <router-link class="nav-default" to="/m/main/celebrityAnalysis">
+                </a>
+                <a class="nav-default" to="/m/main/celebrityAnalysis">
                   <li>隐私政策</li>
-                </router-link>
+                </a>
               </el-col>
             </el-row>
           </div>
@@ -104,7 +103,6 @@
                 menuItem:[
                     {
                         par:"博主搜索",
-                        children:["美妆","美食"]
                     },
                     {
                         par:"微博排行榜",
@@ -129,9 +127,9 @@
         methods:{
             changeRedir(item){
                 if(item.children) {
+                    this.isRedirect2 = true
                     this.subMenu = item;
                     this.isRedirect = true;
-                    this.isRedirect2 = true
                 }
             },
             changeBack(){

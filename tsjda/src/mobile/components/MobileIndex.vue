@@ -16,7 +16,13 @@
         </div>
       </div>
       <div style="position: fixed;bottom: 30%;text-align: right;width: 90%">
-        <el-button size="mini" type="success"  plain round>Try Now!</el-button>
+        <el-button
+          @click="$router.push({
+            name: 'MobileCelebrityAnalysis'
+          })"
+          size="small"
+          type="success"  plain round
+        >Try Now!</el-button>
       </div>
     </div>
 </template>

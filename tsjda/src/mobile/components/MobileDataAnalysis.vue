@@ -108,7 +108,6 @@
         <div class="graph graph3">
           <section>
             <chart
-
               :options="commentLine"
               :init-options="initOptions"
               ref="commentLine"
@@ -148,7 +147,7 @@
 </template>
 
 <script>
-    import ECharts from '../../components/charts/Echarts2'
+    import ECharts from '../../components/charts/Echarts'
     import likeLine from "../../data/likeLine";
     import commentLine from "../../data/commentLine";
     import repostLine from "../../data/repostLine";
@@ -197,7 +196,6 @@
                         this.getPostLine(res.data.data[0],res.data.data[1])
                         loadingInstance1.close()
                     }).catch( error => {
-                        console.log(error)
                     })
                 }
             },
@@ -225,7 +223,6 @@
                         theme: 'comment',
                         dayCount: this.choiceDay(val)
                     }).then( res => {
-                        console.log(res.data.data[0])
                         loadingInstance3.close()
                         this.getCommentLine(res.data.data[0],res.data.data[1])
                     }).catch( error => {
@@ -250,7 +247,7 @@
             }
         },
         mounted(){
-            console.log(this.getDetailInfo({userId:this.userId}))
+            this.getDetailInfo({userId:this.userId})
         },
         methods:{
             getRepostLine(date,data){
@@ -323,18 +320,14 @@
             },
 
             getDetailInfo(userId){
-                console.log(equipPie);
                 let loadingInstance1 = Loading.service({ target: ".graph1" });
                 let loadingInstance2 = Loading.service({ target: ".graph2" });
                 let loadingInstance3 = Loading.service({ target: ".graph3" });
                 let loadingInstance4 = Loading.service({ target: ".graph4" });
                 let loadingInstance5 = Loading.service({ target: ".graph5" });
                 userId = this.compareBloggerId ? {userId:this.compareBloggerId} : userId
-                console.log(userId);
 
                 this.$axios.post('/getBloggerData',userId).then(res => {
-                    console.log(res);
-                    console.log(Object.values(res.data.repost_list_obj))
                     this.repostLine = this.getRepostLine(res.data.repost_list_obj[0],res.data.repost_list_obj[1]);
                     this.likeLine = this.getLikeLine(res.data.like_list_obj[0],res.data.like_list_obj[1])
                     this.commentLine = this.getCommentLine(res.data.comment_list_obj[0],res.data.comment_list_obj[1])
