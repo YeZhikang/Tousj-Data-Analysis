@@ -64,7 +64,7 @@
                 <el-table :data="file.objLst" style="width: 100%"
                           stripe>
                   <el-table-column
-                    v-for="(data) in Object.keys(file.objLst[0])" :prop="data" :label="data" width="120">
+                    v-for="(data,index) in Object.keys(file.objLst[0])" :prop="data" :key="index" :label="data" width="120">
                   </el-table-column>
                 </el-table>
               </template>
@@ -115,7 +115,7 @@
               </el-table>
             </el-col>
           </el-row>
-          <el-row style="margin-top: 30px;border-top: 1px dashed lightgray" v-for="(behavior,index) in userBehaviors">
+          <el-row style="margin-top: 30px;border-top: 1px dashed lightgray" v-for="(behavior,index) in userBehaviors" :key="index">
             <el-col :span="12" >
               <h2>step {{index+1}} </h2>
               <h4>请输入步骤</h4>

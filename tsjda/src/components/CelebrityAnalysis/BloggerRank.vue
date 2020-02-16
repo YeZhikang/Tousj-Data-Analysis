@@ -27,7 +27,7 @@
           v-model="category"
           size="mini"
         >
-          <el-radio-button v-for="(index) in 15" :label="index+' 领域'" >
+          <el-radio-button v-for="(index) in 15" :key="index" :label="index+' 领域'" >
           </el-radio-button>
         </el-radio-group>
       </el-col>

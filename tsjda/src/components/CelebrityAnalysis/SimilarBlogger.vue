@@ -26,17 +26,17 @@
     </el-row>
     <el-row style="margin-top: 30px" :gutter="12">
       <el-col class="userCard" v-for="(userInfo,index) in userInfoArr" :key="index" :span="8">
-        <el-card shadow="hover">
-          <h3 style="font-weight: 400;margin: 0;padding: 0">
+        <el-card shadow="hover" style="white-space: nowrap;overflow: hidden;">
+          <h3 style="font-weight: 400;margin: 0;padding: 0;text-overflow: ellipsis">
             <router-link :to="{name:'数据统计',query:{userId: userInfo.userId}}">
-              {{userInfo.userName.length > 8 ? userInfo.userName.slice(0,7) + "..." : userInfo.userName}}
+              {{userInfo.userName}}
             </router-link>
             <el-tag type="warning" size="mini">
               明星
             </el-tag>
           </h3>
           <small>粉丝数：<i>{{userInfo.fansNum}}</i></small>
-          <p style="margin: 0;padding: 0;font-size: 13px">{{userInfo.definedRes.length > 10 ? userInfo.definedRes.slice(0,10) + " ······ " : userInfo.definedRes}}</p>
+          <p style="overflow: hidden;margin: 0;padding: 0;font-size: 13px;text-overflow: ellipsis">{{userInfo.definedRes}}</p>
         </el-card>
       </el-col>
     </el-row>
