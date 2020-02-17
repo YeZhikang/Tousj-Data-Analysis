@@ -31,9 +31,9 @@
             <router-link class="rl pl25" :to="{name:MyBlog}">Contact  <i class="el-icon-paperclip"></i></router-link>
           </div>
           <div>
-            <router-link class="rl" :to="{name:MyBlog}">
+            <a class="rl" href= "https://github.com/YeZhikang'">
               <img src="../assets/github.svg" height="30px">
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
@@ -70,6 +70,12 @@
 </script>
 
 <style scoped>
+  >>>::selection
+  {
+    background-color: rgba(8, 96, 96, 0.44);
+    color: white;
+  }
+
   .main{
     text-align: left;
     width: calc( 60% + (1440px - 100%)/3)  ;

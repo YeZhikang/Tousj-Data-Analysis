@@ -6,7 +6,7 @@
         class="mobile-header"
         style="position: fixed;height: 100px;transition: 0.2s ease;margin-bottom: 35px;
                  width: 100%;display: flex;align-items: center;
-                 justify-content: space-between;background-color: white;z-index: 999"
+                 justify-content: space-between;background-color: white;z-index: 2999"
       >
         <img src="../../assets/faviconn3.png" style="height: 40px">
         <ul>

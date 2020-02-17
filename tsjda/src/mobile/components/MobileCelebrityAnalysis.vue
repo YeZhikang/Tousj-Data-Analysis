@@ -6,7 +6,7 @@
             @click="drawer = true"
             icon="el-icon-menu"
             type="primary"
-            style="position: fixed;z-index: 999"
+            style="position: fixed;z-index: 2999"
             circle
             plain
           >
