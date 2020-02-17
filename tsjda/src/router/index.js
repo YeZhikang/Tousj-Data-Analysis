@@ -43,6 +43,7 @@ import toHoney from "../mobile/components/toHoney";
 import BlogIndex from "../mobile/pages/BlogIndex";
 import writeMarkdown from "../mobile/pages/writeMarkdown";
 import TheArticles from "../pages/TheArticles";
+import Illness from "../mobile/pages/Illness";
 
 Vue.use(Router)
 
@@ -320,6 +321,11 @@ export default new Router({
       name: "articles",
       path: '/articles/:hash',
       component:TheArticles
+    },
+    {
+      name: 'illness',
+      path: '/illness',
+      component: Illness
     }
   ]
 })

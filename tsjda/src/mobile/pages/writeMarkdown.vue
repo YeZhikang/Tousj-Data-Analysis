@@ -15,7 +15,20 @@
 <!--        </el-col>-->
 <!--      </el-row>-->
       <div>
-        <h2 style="margin-top: 0">Markdown 文件上传</h2>
+        <div style="display: flex;align-items: center;margin-bottom: 25px;justify-content: center">
+          <h2 style="margin: 0 10px 0 0;">Markdown 文件上传</h2>
+          <el-select v-model="value" placeholder="请选择主题">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              >
+              <template>
+                <span>{{item.value}}</span>
+              </template>
+            </el-option>
+          </el-select>
+        </div>
         <el-upload
           class="upload-demo"
           drag
@@ -39,18 +52,41 @@
         components: {ToHoney},
         data(){
             return{
+                value:"JavaScript",
                 markdownCode:"",
-                markdownHtml:""
+                markdownHtml:"",
+                options: [{
+                    value: 'JavaScript',
+                    label: 'JavaScript'
+                }, {
+                    value: 'CSS',
+                    label: 'CSS'
+                }, {
+                    value: 'Node.JS',
+                    label: 'Node.JS'
+                }, {
+                    value: 'Python',
+                    label: 'Python'
+                }, {
+                    value: 'Golang',
+                    label: 'Golang'
+                },{
+                    value: 'Vue',
+                    label: 'Vue'
+                },{
+                    value: 'React',
+                    label: 'React'
+                }],
             }
         },
         methods:{
-            submitForm(){
-                this.$axios.post('/markdown',{markdownCode:this.markdownCode}).then(res => {
-                    this.markdownHtml = res.data.code
-                }).catch(error => {
-                    console.log(error)
-                })
-            },
+            // submitForm(){
+            //     this.$axios.post('/markdown',{markdownCode:this.markdownCode}).then(res => {
+            //         this.markdownHtml = res.data.code
+            //     }).catch(error => {
+            //         console.log(error)
+            //     })
+            // },
             fileUploadSuccess(res,file,fileList) {
                 if (res.code === 200) {
                     this.$message({

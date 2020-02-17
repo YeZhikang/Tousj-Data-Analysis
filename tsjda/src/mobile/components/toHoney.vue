@@ -2,12 +2,13 @@
   <div>
     <div class="to-a">
       <ul>
-        <li><router-link :to="{name: 'blogIndex'}"><h2><i class="el-icon-ice-cream"></i> Ye zhikang</h2></router-link></li>
-        <div class="button-group">
+        <li><router-link :to="{name: 'illness'}"><h2><i class="el-icon-ice-cream"></i> {{name}}</h2></router-link></li>
+        <div class="button-group" v-if="!isWyx">
           <li><h3><router-link :to="{name: 'articles'}">About Me</router-link></h3></li>
           <li><h3><router-link :to="{name: 'articles'}">Articles</router-link></h3></li>
-          <li><h3><router-link :to="{name: 'aboutMe'}">Contact <i class="el-icon-paperclip"></i></router-link></h3></li>
         </div>
+          <li><h3><router-link :to="{name: 'aboutMe'}">Contact <i class="el-icon-paperclip"></i></router-link></h3></li>
+
       </ul>
     </div>
   </div>
@@ -29,6 +30,10 @@
 
     export default {
         name: "toHoney",
+        props:{
+            isWyx:Boolean,
+            name:String
+        },
         methods:{
             addNavListener(){
                 let toA = document.querySelector(".to-a");
@@ -42,7 +47,7 @@
                     }
                 }
                 function func2(){
-                    if(window.innerWidth <= 720){
+                    if(window.innerWidth <= 800){
                         toA.style.height = '58px' ;
                         toA.style.boxShadow = '0 0 10px lightgray';
                         window.removeEventListener("scroll",func1,false)
@@ -131,7 +136,7 @@
     padding-left: 20px;
   }
 
-  @media screen and (max-width:720px ) {
+  @media screen and (max-width:800px ) {
     .to-a{
       height: 58px;
       box-shadow: 0 0 5px lightgrey;
