@@ -39,6 +39,10 @@ import MobileHistoryBlog from "../mobile/components/MobileHistoryBlog";
 import MobileRegister from "../mobile/components/MobileRegister";
 import UserIndex from "../mobile/components/UserIndex";
 import NotFound from "../pages/NotFound";
+import toHoney from "../mobile/components/toHoney";
+import BlogIndex from "../mobile/pages/BlogIndex";
+import writeMarkdown from "../mobile/pages/writeMarkdown";
+import TheArticles from "../pages/TheArticles";
 
 Vue.use(Router)
 
@@ -301,6 +305,21 @@ export default new Router({
         },
 
       ]
+    },
+    {
+      name: "blogIndex",
+      path: '/blogIndex',
+      component: BlogIndex
+    },
+    {
+      name: "write",
+      path: '/write',
+      component: writeMarkdown
+    },
+    {
+      name: "articles",
+      path: '/articles/:hash',
+      component:TheArticles
     }
   ]
 })

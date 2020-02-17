@@ -9,14 +9,26 @@ import 'element-ui/lib/theme-chalk/index.css';
 import echarts from 'echarts'
 import store from "./store";
 import './static/index.css'
+import hljs from 'highlight.js' //导入代码高亮文件
+import 'highlight.js/styles/github.css'  //导入代码高亮样式
+import marked from 'marked'
 
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = 'http://121.43.155.100:8081/';
+axios.defaults.baseURL = 'http://127.0.0.1:5000/';
 Vue.prototype.$axios = axios;
+Vue.prototype.$marked = marked;
 Vue.prototype.$echarts = echarts;
+Vue.directive('highlight',function (el) {
+  let highlight = el.querySelectorAll('pre code');
+  console.log(highlight)
+  highlight.forEach((block)=>{
+    hljs.highlightBlock(block)
+  })
+});
+
 Vue.filter("numCap",function (val) {
   val = val.toString()
   let newNum = ""

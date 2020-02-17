@@ -1,0 +1,13 @@
+.rl{
+  text-decoration: none;
+  color: #686868;
+  transition: 0.3s;
+}
+
+.rl:hover{
+  color: #517598;
+}
+
+.pl25{
+  padding-left: 25px;
+}

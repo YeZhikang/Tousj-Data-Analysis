@@ -33,3 +33,8 @@
 .mt70{
   margin-top: 70px;
 }
+
+.fa{
+  display: flex;
+  align-items: center;
+}

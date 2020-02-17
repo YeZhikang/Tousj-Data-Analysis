@@ -2,7 +2,9 @@
   <div>
     <el-container>
       <el-header
-        style="position: fixed;height: 55px;
+        ref="header"
+        class="mobile-header"
+        style="position: fixed;height: 100px;transition: 0.2s ease;margin-bottom: 35px;
                  width: 100%;display: flex;align-items: center;
                  justify-content: space-between;background-color: white;z-index: 999"
       >
@@ -88,10 +90,23 @@
                 localStorage.setItem("userName","");
                 this.userName = ""
                 // this.$router.push({name:"login"})
-            }
+            },
+            scrollToAddBoxShadow(){
+              let mobileHeader = document.querySelector(".mobile-header");
+              window.addEventListener('scroll',()=>{
+                  if(document.documentElement.scrollTop<45){
+                      mobileHeader.style.boxShadow = 'none'
+                      mobileHeader.style.height = '100px'
+                  }else{
+                      mobileHeader.style.boxShadow = '0 0 10px lightgray'
+                      mobileHeader.style.height = '55px'
+                  }
+              },false)
+            },
         },
         mounted(){
-            this.changeNavColor()
+            this.changeNavColor();
+            this.scrollToAddBoxShadow();
         },
         watch:{
             $route:{
