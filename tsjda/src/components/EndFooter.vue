@@ -2,12 +2,12 @@
     <div>
       <div class="end" >
         <div style="display: flex;align-items: center">
-          <router-link class="rl" :to="{name:MyBlog}">Articles</router-link>
-          <router-link class="rl pl25" :to="{name:MyBlog}">ToushiJing</router-link>
-          <router-link class="rl pl25" :to="{name:MyBlog}">Contact  <i class="el-icon-paperclip"></i></router-link>
+          <router-link class="rl" :to="{name:'blogIndex'}">Articles</router-link>
+          <router-link class="rl pl25" :to="{name:'blogIndex'}">ToushiJing</router-link>
+          <router-link class="rl pl25" :to="{name:'blogIndex'}">Contact  <i class="el-icon-paperclip"></i></router-link>
         </div>
         <div>
-          <router-link class="rl" :to="{name:MyBlog}">
+          <router-link class="rl" :to="{name:'blogIndex'}">
             <img src="../assets/github.svg" height="30px">
           </router-link>
         </div>
@@ -57,7 +57,7 @@
   }
 
   .end{
-    margin: 160px 0 80px 0;padding:0 40px;display: flex;justify-content: space-between
+    margin: 80px 0 20px 0;padding:0 40px;display: flex;justify-content: space-between
   }
 
   @media screen and (max-width: 720px) {

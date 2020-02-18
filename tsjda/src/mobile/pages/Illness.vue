@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%">
-    <to-honey name="Wang Yaxuan" :is-wyx="isWyx"></to-honey>
+    <to-honey></to-honey>
     <div style="display: flex;justify-content: center;">
       <div class="main" >
         <h1 style="font-size: 36px;color: black;">实时情况图</h1>
@@ -78,14 +78,14 @@
 
           </el-collapse>
         </el-card>
-        <h4 style="font-weight: 400; text-align: right;margin: 100px 10px 20px 0;color: rgba(44,62,80,0.76)">Made by <br/><i>Wang Yaxuan</i></h4>
+        <h4 style="font-weight: 400; text-align: right;margin: 100px 10px 20px 0;color: rgba(44,62,80,0.76)">Made by <br/><i>Ye Zhikang</i></h4>
         <div class="end" >
           <div style="display: flex;align-items: center">
             <router-link class="rl" :to="{name:'illness'}">Illness</router-link>
             <router-link class="rl pl25" :to="{name:'illness'}">Contact  <i class="el-icon-paperclip"></i></router-link>
           </div>
           <div>
-            <a class="rl" href= "https://github.com/YeZhikang'">
+            <a class="rl" href= "https://github.com/YeZhikang">
               <img src="../../assets/github.svg" height="30px">
             </a>
           </div>
@@ -168,12 +168,13 @@
                                     $_illArr[i].value += item.confirmedCount
                                     $_illArr[i].cityLst.push({ cityName:item.cityName,number:item.confirmedCount })
                                     break
-                                } else if (i === $_illArr.length - 1) {
+                                } else if (i === $_illArr.length-1) {
                                     $_illArr.push({
                                         name: item.provinceName,
                                         value: item.confirmedCount,
                                         cityLst: [{cityName:item.cityName,number:item.confirmedCount}]
                                     })
+                                    break
                                 }
                             }
                         }

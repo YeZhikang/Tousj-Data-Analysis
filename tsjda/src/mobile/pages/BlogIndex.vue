@@ -73,7 +73,7 @@
     margin-top: 40px;
   }
   .index-main{
-    width: 60%;
+    width: calc( 60% + (1440px - 100%)/3)  ;
     margin: auto;
     transition: 0.3s;
   }

@@ -11,6 +11,11 @@ export default {
 </script>
 
 <style>
+  >>>::selection
+  {
+    background-color: rgba(8, 96, 96, 0.44);
+    color: white;
+  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

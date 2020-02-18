@@ -23,7 +23,6 @@ Vue.prototype.$marked = marked;
 Vue.prototype.$echarts = echarts;
 Vue.directive('highlight',function (el) {
   let highlight = el.querySelectorAll('pre code');
-  console.log(highlight)
   highlight.forEach((block)=>{
     hljs.highlightBlock(block)
   })
@@ -61,14 +60,12 @@ router.beforeEach((to,from,next)=>{
     && to.name !== 'illness'
   ){
     let userName = localStorage.getItem("userName");
-    console.log(userName)
     if(!userName){
       router.push({name:"NotLogin"})
     }
   }
   store.commit("judgeIsMobile",bool);
 
-  console.log(store.state.isMobile)
   next()
 });
 

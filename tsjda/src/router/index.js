@@ -44,6 +44,8 @@ import BlogIndex from "../mobile/pages/BlogIndex";
 import writeMarkdown from "../mobile/pages/writeMarkdown";
 import TheArticles from "../pages/TheArticles";
 import Illness from "../mobile/pages/Illness";
+import AboutMe from "../mobile/components/AboutMe";
+import ThePages from "../mobile/components/ThePages";
 
 Vue.use(Router)
 
@@ -326,6 +328,16 @@ export default new Router({
       name: 'illness',
       path: '/illness',
       component: Illness
+    },
+    {
+      name: 'me',
+      path: '/me',
+      component: AboutMe
+    },
+    {
+      name: 'pages',
+      path: '/pages',
+      component: ThePages
     }
   ]
 })

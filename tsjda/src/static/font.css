@@ -4,6 +4,24 @@
   transition: 0.3s;
 }
 
+
+
+.pjfont{
+  color: #5183f5;
+  text-decoration: none;
+  border-bottom:2px solid #e2eafd;
+  transition: 0.2s;
+  padding: 0 2px;
+}
+
+.pjfont:hover{
+  color: #5183f5;
+  text-decoration: none;
+  border-bottom:2px solid #8eb9fd;
+  transition: 0.2s;
+  background-color: #e2eafd;
+}
+
 .rl:hover{
   color: #517598;
 }

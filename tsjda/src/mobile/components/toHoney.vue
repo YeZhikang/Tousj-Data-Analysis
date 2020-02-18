@@ -2,13 +2,14 @@
   <div>
     <div class="to-a">
       <ul>
-        <li><router-link :to="{name: 'illness'}"><h2><i class="el-icon-ice-cream"></i> {{name}}</h2></router-link></li>
-        <div class="button-group" v-if="!isWyx">
-          <li><h3><router-link :to="{name: 'articles'}">About Me</router-link></h3></li>
-          <li><h3><router-link :to="{name: 'articles'}">Articles</router-link></h3></li>
+        <li><router-link :to="{name: 'blogIndex'}"><h2><i class="el-icon-ice-cream"></i> Ye Zhikang</h2></router-link></li>
+        <div class="button-group">
+          <li><h3><router-link :to="{name: 'me'}" :class="{navActive:isActive[0]}">About Me</router-link></h3></li>
+          <li><h3><router-link :to="{name: 'pages'}" :class="{navActive:isActive[1]}">Articles</router-link></h3></li>
+          <li><h3><router-link :to="{name: 'me'}" :class="{navActive:isActive[2]}">
+            Contact <i class="el-icon-paperclip"></i></router-link>
+          </h3></li>
         </div>
-          <li><h3><router-link :to="{name: 'aboutMe'}">Contact <i class="el-icon-paperclip"></i></router-link></h3></li>
-
       </ul>
     </div>
   </div>
@@ -30,9 +31,10 @@
 
     export default {
         name: "toHoney",
-        props:{
-            isWyx:Boolean,
-            name:String
+        data(){
+            return {
+                isActive: [false, false, false]
+            }
         },
         methods:{
             addNavListener(){
@@ -74,11 +76,29 @@
             //     },false);
             // }
         },
+        watch:{
+            $route: {
+                handler:function (val) {
+                    if (val.name === "blogIndex") {
+                        this.isActive = [false, false, false]
+                    } else if (val.name === "write") {
+                        this.isActive = [false, false, false]
+                    } else if (val.name === "articles") {
+                        this.isActive = [false, true, false]
+                    } else if (val.name === "me") {
+                        this.isActive = [true, false, false]
+                    } else if (val.name === "Contact") {
+                        this.isActive = [false, false, true]
+                    }
+                },
+                immediate:true
+            }
+        },
         mounted() {
             if(this.$store.state.isMobile === false){
                 this.addNavListener()
             }
-        }
+        },
     }
 </script>
 
@@ -91,6 +111,13 @@
 
   a:hover{
     color: #517598;
+    border-top: 5px solid darkcyan;
+    border-top-left-radius: 6px ;
+    border-top-right-radius: 6px  ;
+  }
+
+  .navActive{
+    color: black;
     border-top: 5px solid darkcyan;
     border-top-left-radius: 6px ;
     border-top-right-radius: 6px  ;
