@@ -17,7 +17,7 @@
           <input class="search-input" type="text" placeholder="点击此处来进行搜索" v-model="text">
           <h3>{{resultNum}}</h3>
         </div>
-        <div class="searchedRes" style="min-height: 180px">
+        <div class="searchedRes" style="min-height: 150px" v-if="resultNum">
           <div @click="turnToArticles(articleRes.urlHash)" v-for="(articleRes,index) in articles" :key="index" class="searchedUnit">
             <img class="cover" :src="pngCate[articleRes.category]">
             <div class="title-continue-isnew">
@@ -28,6 +28,9 @@
               <div class="isnew"><el-tag type="warning" v-if="isNew(articleRes.time)">New</el-tag></div>
             </div>
           </div>
+        </div>
+        <div class="searchedRes" style="min-height: 150px" v-if="!resultNum">
+          <h2 style="font-size: 20px;font-weight: 500;color: #757575">No Results</h2>
         </div>
         <div style="width: 100%">
            <end-footer id="footer"></end-footer>
@@ -51,6 +54,7 @@
     import Python from '../../assets/blogs/Python.png'
     import SolveWay from '../../assets/blogs/SolveWay.png'
     import Tool from '../../assets/blogs/Tool.png'
+    import { Loading } from 'element-ui';
 
     export default {
         name: "ThePages",
@@ -105,10 +109,11 @@
                 }
             },
             getArticles(activeLabels,text){
-                this.articles = [];
+                let loadingInstance1 = Loading.service({ target: ".searchedRes" });
                 this.$axios.post('/getArticles',{activeLabels: activeLabels,text:text}).then(res => {
                     console.log(res.data.articles)
-                    this.articles = this.articles.concat(res.data.articles);
+                    this.articles = res.data.articles.reverse()
+                    loadingInstance1.close()
                 }).catch(error => {
                     console.log(error)
                 })

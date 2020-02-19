@@ -81,7 +81,7 @@
         methods:{
             getAllArticleInfo(){
                 this.$axios.post('/getArticles',{activeLabels:[],text:""}).then(res => {
-                    this.articleLst = res.data.articles
+                    this.articleLst = res.data.articles.reverse()
                 }).catch(error => {
                     console.log(error)
                 })

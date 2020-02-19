@@ -224,5 +224,8 @@
     .end .pl25{
       padding-left: 10px;
     }
+    >>>ul{
+      padding-left: 8px;
+    }
   }
 </style>

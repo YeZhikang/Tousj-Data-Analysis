@@ -30,7 +30,7 @@
         <el-upload
           class="upload-demo"
           drag
-          action="http://127.0.0.1:5000/mdUpload"
+          action="http://121.43.155.100:8081/mdUpload"
           multiple
           :on-success="fileUploadSuccess">
           <div>
