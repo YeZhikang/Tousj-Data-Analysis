@@ -83,7 +83,7 @@
                         this.isActive = [false, false, false]
                     } else if (val.name === "write") {
                         this.isActive = [false, false, false]
-                    } else if (val.name === "articles") {
+                    } else if (val.name === "pages" || val.name === "articles") {
                         this.isActive = [false, true, false]
                     } else if (val.name === "me") {
                         this.isActive = [true, false, false]

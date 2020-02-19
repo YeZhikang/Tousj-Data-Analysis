@@ -7,9 +7,9 @@
           <router-link class="rl pl25" :to="{name:'blogIndex'}">Contact  <i class="el-icon-paperclip"></i></router-link>
         </div>
         <div>
-          <router-link class="rl" :to="{name:'blogIndex'}">
+          <a class="rl" href="https://www.github.com/Yezhikang">
             <img src="../assets/github.svg" height="30px">
-          </router-link>
+          </a>
         </div>
       </div>
     </div>

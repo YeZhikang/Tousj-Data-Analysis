@@ -5,10 +5,10 @@
       <div class="welcome-block">
         <div class="intro" style="text-align: left;color: black">
           <h1>Hey,我是叶志康</h1>
-          <p>我是一个前端开发者，爱好编程。对 JavaScript,Python,Node.js 很感兴趣。希望能寻找更多志同道合的人！</p>
+          <p>我是一个前端开发者，爱好编程。对 <code class="pjfont">JavaScript</code> , <code class="pjfont">Python</code> , <code class="pjfont">Node.js</code> 很感兴趣。希望能寻找更多志同道合的人！</p>
           <div style="margin-top: 24px">
-            <el-button type="primary" size="mini">Vision DataAnalysis <i class="el-icon-search"></i></el-button>
-              <el-button type="warning" size="mini">About Me</el-button>
+            <el-button @click="urlRedirect('/')" type="primary" size="mini">Vision DataAnalysis <i class="el-icon-search"></i></el-button>
+              <el-button type="warning" size="mini" @click="urlRedirect({name:'me'})">About Me</el-button>
           </div>
         </div>
         <div class="welcome-card">
@@ -28,13 +28,13 @@
         <div class="article-list">
           <div v-for="(article,index) in articleLst" :key="index" class="fa" style="margin-top: 25px">
 <!--            <img :src="article.img" alt="">-->
-            <img src="../../assets/jsImg.png" style="width: 33px">
+            <img :src="pngCate[article.category]" style="width: 33px">
             <h4 style="width: 89%;padding-left: 15px;"><router-link class="rl" :to="{name:'articles',params:{hash:article.urlHash}}">{{article.file}}</router-link></h4>
             <el-tag class="isNew" type="warning">New</el-tag>
           </div>
         </div>
       </div>
-      <end-footer></end-footer>
+      <end-footer id="footer"></end-footer>
     </div>
   </div>
 </template>
@@ -43,6 +43,11 @@
     import ToHoney from "../components/toHoney";
     import EndFooter from "../../components/EndFooter";
     import '../../static/font.css'
+    import JavaScript from '../../assets/blogs/javascript.png'
+    import React from '../../assets/blogs/react.png'
+    import Vue from '../../assets/blogs/vue.png'
+    import CSS from '../../assets/blogs/css.png'
+
     export default {
         name: "BlogIndex",
         components: {EndFooter, ToHoney},
@@ -50,20 +55,47 @@
             return{
                 articleLst:[
 
-                ]
+                ],
+                pngCate:{
+                    JavaScript,
+                    Vue,
+                    React,
+                    CSS
+                }
             }
         },
         methods:{
             getAllArticleInfo(){
-                this.$axios.get('/getAllMd').then(res => {
-                    this.articleLst = res.data.mdLst
+                this.$axios.post('/getArticles',{activeLabels:[],text:""}).then(res => {
+                    this.articleLst = res.data.articles
                 }).catch(error => {
                     console.log(error)
                 })
+            },
+            urlRedirect(obj){
+                this.$router.push(obj)
+            },
+            footerChange(){
+                let main = document.getElementsByClassName("index-main")[0];
+                let app = document.getElementById("app")
+                let distance = app.clientHeight-main.clientHeight
+                if(main.clientHeight < 700){
+                    document.getElementById("footer").style.position = "absolute"
+                    document.getElementById("footer").style.bottom = "0"
+                    document.getElementById("footer").style.width = "86%"
+                }else{
+                    document.getElementById("footer").style.position = "relative"
+                    document.getElementById("footer").style.width = "100%"
+                }
+            },
+            changeFooter(){
+                window.addEventListener("resize",this.footerChange,false)
             }
         },
         mounted() {
-            this.getAllArticleInfo()
+            this.getAllArticleInfo();
+            this.footerChange()
+            this.changeFooter()
         }
     }
 </script>

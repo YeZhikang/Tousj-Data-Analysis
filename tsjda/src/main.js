@@ -45,6 +45,10 @@ Vue.filter("numCap",function (val) {
   return newNum
 });
 
+Vue.filter("changeToMDY",(val)=>{
+  return new Date(val).toString().split(" ").slice(0,4).join(" ")
+})
+
 router.beforeEach((to,from,next)=>{
   let bool = false
   let ua = navigator.userAgent;

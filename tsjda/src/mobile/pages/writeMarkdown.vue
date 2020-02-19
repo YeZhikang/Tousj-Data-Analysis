@@ -22,10 +22,8 @@
               v-for="item in options"
               :key="item.value"
               :label="item.label"
+              :value="item.value"
               >
-              <template>
-                <span>{{item.value}}</span>
-              </template>
             </el-option>
           </el-select>
         </div>
@@ -76,6 +74,15 @@
                 },{
                     value: 'React',
                     label: 'React'
+                },{
+                    value: 'Daily Life',
+                    label: '生活记录'
+                },{
+                    value: 'Tool',
+                    label: "工具"
+                },{
+                    value: 'SolveWay',
+                    label: "解决方案"
                 }],
             }
         },
@@ -89,12 +96,27 @@
             // },
             fileUploadSuccess(res,file,fileList) {
                 if (res.code === 200) {
+                    console.log(res.hash)
+                    new Promise((resolve => {
+                        this.writeCategory(res.hash)
+                        resolve()
+                    })).then(() => {
+                        setTimeout(()=>{this.$router.push({name:"pages"})},400)
+                    })
+                }
+            },
+            writeCategory(hash){
+                this.$axios.post('/writeCategory',{category:this.value,urlHash:hash}).then(res => {
+                    console.log(res)
                     this.$message({
                         message: "文件上传成功",
                         type: "success"
                     });
-                }
-            }
+                }).catch(error => {
+                    console.log(error)
+                })
+            },
+
         },
     }
 </script>
