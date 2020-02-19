@@ -1,11 +1,11 @@
 <template>
   <div class="main">
     <to-honey></to-honey>
-    <div class="index-main">
+    <div class="main-body">
       <div class="welcome-block">
         <div class="intro" style="text-align: left;color: black">
           <h1>Hey,我是叶志康</h1>
-          <p>我是一个前端开发者，爱好编程。对 <code class="pjfont">JavaScript</code> , <code class="pjfont">Python</code> , <code class="pjfont">Node.js</code> 很感兴趣。希望能寻找更多志同道合的人！</p>
+          <p>我是一个前端开发者，爱好编程。对 <code class="pjfont">JavaScript</code> , <code class="pjfont">Python</code> , <code class="pjfont">Node.js</code> 很感兴趣。</p>
           <div style="margin-top: 24px">
             <el-button @click="urlRedirect('/')" type="primary" size="mini">Vision DataAnalysis <i class="el-icon-search"></i></el-button>
               <el-button type="warning" size="mini" @click="urlRedirect({name:'me'})">About Me</el-button>
@@ -23,7 +23,7 @@
       <div class="recent-blog">
         <div class="fa">
           <h2>Recent Articles</h2>
-          <el-button style="margin-left: 25px" type="info" size="mini">View all</el-button>
+          <el-button @click="urlRedirect({name:'pages'})" style="margin-left: 25px" type="info" size="mini">View all</el-button>
         </div>
         <div class="article-list">
           <div v-for="(article,index) in articleLst" :key="index" class="fa" style="margin-top: 25px">
@@ -47,6 +47,13 @@
     import React from '../../assets/blogs/react.png'
     import Vue from '../../assets/blogs/vue.png'
     import CSS from '../../assets/blogs/css.png'
+    import Golang from '../../assets/blogs/Golang.png'
+    import DailyLife from '../../assets/blogs/Daily Life.png'
+    import Design from '../../assets/blogs/Design.png'
+    import NodeJS from '../../assets/blogs/Node.JS.png'
+    import Python from '../../assets/blogs/Python.png'
+    import SolveWay from '../../assets/blogs/SolveWay.png'
+    import Tool from '../../assets/blogs/Tool.png'
 
     export default {
         name: "BlogIndex",
@@ -60,7 +67,14 @@
                     JavaScript,
                     Vue,
                     React,
-                    CSS
+                    CSS,
+                    Golang,
+                    Design,
+                    NodeJS,
+                    Python,
+                    SolveWay,
+                    Tool,
+                    DailyLife
                 }
             }
         },
@@ -75,27 +89,10 @@
             urlRedirect(obj){
                 this.$router.push(obj)
             },
-            footerChange(){
-                let main = document.getElementsByClassName("index-main")[0];
-                let app = document.getElementById("app")
-                let distance = app.clientHeight-main.clientHeight
-                if(main.clientHeight < 700){
-                    document.getElementById("footer").style.position = "absolute"
-                    document.getElementById("footer").style.bottom = "0"
-                    document.getElementById("footer").style.width = "86%"
-                }else{
-                    document.getElementById("footer").style.position = "relative"
-                    document.getElementById("footer").style.width = "100%"
-                }
-            },
-            changeFooter(){
-                window.addEventListener("resize",this.footerChange,false)
-            }
+
         },
         mounted() {
             this.getAllArticleInfo();
-            this.footerChange()
-            this.changeFooter()
         }
     }
 </script>
@@ -104,7 +101,7 @@
   .article-list{
     margin-top: 40px;
   }
-  .index-main{
+  .main-body{
     width: calc( 60% + (1440px - 100%)/3)  ;
     margin: auto;
     transition: 0.3s;
@@ -168,7 +165,7 @@
     .recent-blog{
       margin-top: 45px;
     }
-    .index-main{
+    .main-body{
       width: 90%;
 
     }

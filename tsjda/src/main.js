@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = 'http://127.0.0.1:5000/';
+axios.defaults.baseURL = 'http://121.43.155.100:8081/';
 Vue.prototype.$axios = axios;
 Vue.prototype.$marked = marked;
 Vue.prototype.$echarts = echarts;
@@ -60,8 +60,11 @@ router.beforeEach((to,from,next)=>{
       break
     }
   }
-  if(to.name !== "register" && to.name !== "index" && to.name !== 'login' && to.name !== "NotLogin" && to.name !== "MobileLogin" && to.name !== "MobileIndex" && to.name !== "MobileRegister"
-    && to.name !== 'illness'
+  const notRedirectUrlArr = [
+    "register","index","login","NotLogin","MobileLogin","MobileIndex","MobileRegister",
+    "illness","me","pages","articles","blogIndex"
+  ]
+  if(!notRedirectUrlArr.includes(to.name)
   ){
     let userName = localStorage.getItem("userName");
     if(!userName){

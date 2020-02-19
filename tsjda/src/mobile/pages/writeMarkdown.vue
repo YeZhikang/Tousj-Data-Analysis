@@ -60,7 +60,7 @@
                     value: 'CSS',
                     label: 'CSS'
                 }, {
-                    value: 'Node.JS',
+                    value: 'NodeJS',
                     label: 'Node.JS'
                 }, {
                     value: 'Python',
@@ -75,7 +75,7 @@
                     value: 'React',
                     label: 'React'
                 },{
-                    value: 'Daily Life',
+                    value: 'DailyLife',
                     label: '生活记录'
                 },{
                     value: 'Tool',

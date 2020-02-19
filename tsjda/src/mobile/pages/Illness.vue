@@ -79,17 +79,7 @@
           </el-collapse>
         </el-card>
         <h4 style="font-weight: 400; text-align: right;margin: 100px 10px 20px 0;color: rgba(44,62,80,0.76)">Made by <br/><i>Ye Zhikang</i></h4>
-        <div class="end" >
-          <div style="display: flex;align-items: center">
-            <router-link class="rl" :to="{name:'illness'}">Illness</router-link>
-            <router-link class="rl pl25" :to="{name:'illness'}">Contact  <i class="el-icon-paperclip"></i></router-link>
-          </div>
-          <div>
-            <a class="rl" href= "https://github.com/YeZhikang">
-              <img src="../../assets/github.svg" height="30px">
-            </a>
-          </div>
-        </div>
+        <end-footer></end-footer>
       </div>
       </div>
   </div>
@@ -103,11 +93,13 @@
     import ToHoney from "../components/toHoney";
     import data2 from '../../data/data2'
     import '../../static/font.css'
+    import EndFooter from "../../components/EndFooter";
 
     export default {
         name: "Illness",
         props: ["userJson"],
         components:{
+            EndFooter,
             ToHoney,
             chart:Echarts
         },

@@ -3,12 +3,12 @@
     <to-honey></to-honey>
       <div class="main" >
         <div style="display: flex;align-items: center;width: 100%">
-          <img class="imgLogo" src="../assets/jsImg.png">
+          <img class="imgLogo" :src="pngCate[category]">
           <div>
-            <h1 class="title" style="margin-bottom: 0;margin-top: 0;color: black;font-size: 34px">{{this.title}}</h1>
-            <span style="font-size: 13px;color: darkgrey;line-height: 1">{{this.time}} /
+            <h1 class="title" style="margin-bottom: 0;margin-top: 0;color: black;font-size: 34px">{{title}}</h1>
+            <span style="font-size: 13px;color: darkgrey;line-height: 1">{{time}} /
               <span style="font-weight: 600;font-size: 15px"> share</span></span><br>
-            <el-tag style="margin-top: 20px" type="primary" size="mini" plain>JavaScript</el-tag>
+            <el-tag style="margin-top: 20px" type="primary" size="mini" plain>{{category}}</el-tag>
             <el-tag style="margin-top: 20px" type="warning" size="mini" plain>Blog</el-tag>
           </div>
         </div>
@@ -24,18 +24,7 @@
 <!--            </div>-->
 <!--          </div>-->
 <!--        </el-card>-->
-        <div class="end" >
-          <div style="display: flex;align-items: center">
-            <router-link class="rl" :to="{name:MyBlog}">Articles</router-link>
-            <router-link class="rl pl25" :to="{name:MyBlog}">ToushiJing</router-link>
-            <router-link class="rl pl25" :to="{name:MyBlog}">Contact  <i class="el-icon-paperclip"></i></router-link>
-          </div>
-          <div>
-            <a class="rl" href= "https://github.com/YeZhikang'">
-              <img src="../assets/github.svg" height="30px">
-            </a>
-          </div>
-        </div>
+        <end-footer id="footer"></end-footer>
       </div>
   </div>
 </template>
@@ -43,14 +32,41 @@
 <script>
     import ToHoney from "../mobile/components/toHoney";
     import '../static/font.css'
+    import EndFooter from "../components/EndFooter";
+    import JavaScript from '../assets/blogs/javascript.png'
+    import React from '../assets/blogs/react.png'
+    import Vue from '../assets/blogs/vue.png'
+    import CSS from '../assets/blogs/css.png'
+    import Golang from '../assets/blogs/Golang.png'
+    import DailyLife from '../assets/blogs/Daily Life.png'
+    import Design from '../assets/blogs/Design.png'
+    import NodeJS from '../assets/blogs/Node.JS.png'
+    import Python from '../assets/blogs/Python.png'
+    import SolveWay from '../assets/blogs/SolveWay.png'
+    import Tool from '../assets/blogs/Tool.png'
+
     export default {
         name: "TheArticles",
-        components: {ToHoney},
+        components: {EndFooter, ToHoney},
         data(){
             return{
                 mdHtml:"",
                 title:"",
                 time:"",
+                category: "",
+                pngCate:{
+                    JavaScript,
+                    Vue,
+                    React,
+                    CSS,
+                    Golang,
+                    Design,
+                    NodeJS,
+                    Python,
+                    SolveWay,
+                    Tool,
+                    DailyLife
+                }
             }
         },
         created() {
@@ -60,6 +76,7 @@
                 this.mdHtml = this.$marked(res.data.text);
                 this.title = res.data.file;
                 this.time = res.data.time;
+                this.category = res.data.category
                 console.log(res.data)
             }).catch(error => {
                 console.log(error)

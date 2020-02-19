@@ -2,9 +2,9 @@
     <div>
       <div class="end" >
         <div style="display: flex;align-items: center">
-          <router-link class="rl" :to="{name:'blogIndex'}">Articles</router-link>
-          <router-link class="rl pl25" :to="{name:'blogIndex'}">ToushiJing</router-link>
-          <router-link class="rl pl25" :to="{name:'blogIndex'}">Contact  <i class="el-icon-paperclip"></i></router-link>
+          <router-link class="rl" :to="{name:'pages'}">Articles</router-link>
+          <router-link class="rl pl25" :to="{name:'index'}">ToushiJing</router-link>
+          <router-link class="rl pl25" :to="{name:'me'}">Contact  <i class="el-icon-paperclip"></i></router-link>
         </div>
         <div>
           <a class="rl" href="https://www.github.com/Yezhikang">
@@ -18,7 +18,34 @@
 <script>
     import '../static/font.css'
     export default {
-        name: "EndFooter"
+        name: "EndFooter",
+        data(){
+            return{
+
+            }
+        },
+        methods:{
+            footerChange(){
+                // let main = document.getElementsByClassName("main-body")[0]
+                // let app = document.getElementById("app")
+                // let distance = app.clientHeight-main.clientHeight
+                // if(main.clientHeight < 700 && main.clientWidth < 800){
+                //     document.getElementById("footer").style.position = "absolute"
+                //     document.getElementById("footer").style.bottom = "0"
+                //     document.getElementById("footer").style.width = "86%"
+                // }else{
+                //     document.getElementById("footer").style.position = "relative"
+                //     document.getElementById("footer").style.width = "100%"
+                // }
+            },
+            changeFooter(){
+                // window.addEventListener("resize",this.footerChange,false)
+            }
+        },
+        mounted() {
+            this.footerChange()
+            this.changeFooter()
+        }
     }
 </script>
 
@@ -57,7 +84,7 @@
   }
 
   .end{
-    margin: 80px 0 20px 0;padding:0 40px;display: flex;justify-content: space-between
+    margin:140px 0 20px 0;padding:0 40px;display: flex;justify-content: space-between
   }
 
   @media screen and (max-width: 720px) {

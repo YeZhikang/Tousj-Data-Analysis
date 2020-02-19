@@ -17,7 +17,7 @@
           <input class="search-input" type="text" placeholder="点击此处来进行搜索" v-model="text">
           <h3>{{resultNum}}</h3>
         </div>
-        <div class="searchedRes">
+        <div class="searchedRes" style="min-height: 180px">
           <div @click="turnToArticles(articleRes.urlHash)" v-for="(articleRes,index) in articles" :key="index" class="searchedUnit">
             <img class="cover" :src="pngCate[articleRes.category]">
             <div class="title-continue-isnew">
@@ -29,21 +29,32 @@
             </div>
           </div>
         </div>
+        <div style="width: 100%">
+           <end-footer id="footer"></end-footer>
+        </div>
       </div>
     </div>
 </template>
 
 <script>
     import '../../static/font.css'
+    import EndFooter from "../../components/EndFooter";
     import ToHoney from "./toHoney"
     import JavaScript from '../../assets/blogs/javascript.png'
     import React from '../../assets/blogs/react.png'
     import Vue from '../../assets/blogs/vue.png'
     import CSS from '../../assets/blogs/css.png'
+    import Golang from '../../assets/blogs/Golang.png'
+    import DailyLife from '../../assets/blogs/Daily Life.png'
+    import Design from '../../assets/blogs/Design.png'
+    import NodeJS from '../../assets/blogs/Node.JS.png'
+    import Python from '../../assets/blogs/Python.png'
+    import SolveWay from '../../assets/blogs/SolveWay.png'
+    import Tool from '../../assets/blogs/Tool.png'
 
     export default {
         name: "ThePages",
-        components: {ToHoney},
+        components: {EndFooter, ToHoney},
         data(){
             return{
                 isActive: [false,false,false,false,false],
@@ -56,7 +67,14 @@
                     JavaScript,
                     Vue,
                     React,
-                    CSS
+                    CSS,
+                    Golang,
+                    Design,
+                    NodeJS,
+                    Python,
+                    SolveWay,
+                    Tool,
+                    DailyLife
                 }
             }
         },
@@ -295,7 +313,9 @@
     .title-continue-isnew p{
       font-size: 10px;
     }
-
+    .searchedRes{
+      margin: 26px 0 20px 0;
+    }
 
   }
 </style>
