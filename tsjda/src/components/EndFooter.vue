@@ -84,7 +84,7 @@
   }
 
   .end{
-    margin:140px 0 20px 0;padding:0 40px;display: flex;justify-content: space-between
+    margin:140px 0 70px 0;padding:0 40px;display: flex;justify-content: space-between
   }
 
   @media screen and (max-width: 720px) {

@@ -225,7 +225,13 @@
       padding-left: 10px;
     }
     >>>ul{
-      padding-left: 8px;
+      padding-left: 12px;
+    }
+    >>>blockquote{
+      padding-left: 12px;
+    }
+    >>>blockquote p{
+      padding-left: 10px;
     }
   }
 </style>
