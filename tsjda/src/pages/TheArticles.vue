@@ -1,11 +1,11 @@
 <template>
   <div style="width: 100%">
     <to-honey></to-honey>
-      <div class="main" >
+      <div class="main">
         <div style="display: flex;align-items: center;width: 100%">
           <img class="imgLogo" :src="pngCate[category]">
           <div>
-            <h1 class="title" style="margin-bottom: 0;margin-top: 0;color: black;font-size: 34px">{{title}}</h1>
+            <h1 class="title" style="margin-bottom: 0;margin-top: 0;color: black;">{{title}}</h1>
             <span style="font-size: 13px;color: darkgrey;line-height: 1">{{time}} /
               <span style="font-weight: 600;font-size: 15px"> share</span></span><br>
             <el-tag style="margin-top: 20px" type="primary" size="mini" plain>{{category}}</el-tag>
@@ -44,6 +44,7 @@
     import Python from '../assets/blogs/Python.png'
     import SolveWay from '../assets/blogs/SolveWay.png'
     import Tool from '../assets/blogs/Tool.png'
+    import { Loading } from 'element-ui';
 
     export default {
         name: "TheArticles",
@@ -72,11 +73,14 @@
         created() {
             let hash = this.$route.params.hash;
             console.log(hash);
+            let loadingInstance1 = Loading.service({ target: ".main" });
             this.$axios.post('/getmd',{hash}).then(res => {
                 this.mdHtml = this.$marked(res.data.text);
                 this.title = res.data.file;
                 this.time = res.data.time;
-                this.category = res.data.category
+                this.category = res.data.category;
+                document.title = this.title + " — Yezhikang";
+                loadingInstance1.close()
                 console.log(res.data)
             }).catch(error => {
                 console.log(error)
@@ -98,10 +102,14 @@
     width: calc( 60% + (1440px - 100%)/3)  ;
     margin: 0 auto;
     padding-top: 180px;
+    padding-bottom: 25px;
   }
   .imgLogo{
     width:150px;
     padding:35px 35px 35px 0;
+  }
+  .title{
+    font-size: 34px;
   }
 
   >>>code:not(.hljs){
@@ -203,6 +211,18 @@
   }
 
   @media screen and (max-width: 720px) {
+    .title{
+      font-size: 30px;
+    }
+    >>>.htmlBlock h1:not(.title){
+      font-size: 23px;
+    }
+    >>>.htmlBlock h2:not(.title){
+      font-size: 20px;
+    }
+    >>>.htmlBlock h3:not(.title){
+      font-size: 18px;
+    }
     .main{
       width: 90%;
       padding-top: 90px;

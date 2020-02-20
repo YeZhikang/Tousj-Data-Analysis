@@ -3,8 +3,8 @@
       <div class="end" >
         <div style="display: flex;align-items: center">
           <router-link class="rl" :to="{name:'pages'}">Articles</router-link>
-          <router-link class="rl pl25" :to="{name:'index'}">ToushiJing</router-link>
-          <router-link class="rl pl25" :to="{name:'me'}">Contact  <i class="el-icon-paperclip"></i></router-link>
+          <router-link class="rl pl25" :to="{name:'MobileIndex'}">ToushiJing</router-link>
+          <router-link class="rl pl25" :to="{name:'contact'}">Contact  <i class="el-icon-paperclip"></i></router-link>
         </div>
         <div>
           <a class="rl" href="https://www.github.com/Yezhikang">
@@ -84,10 +84,13 @@
   }
 
   .end{
-    margin:140px 0 70px 0;padding:0 40px;display: flex;justify-content: space-between
+    margin:120px 0 20px 0;padding:20px 40px 0 10px;display: flex;justify-content: space-between;
+    line-height: 0;
+    border-left: 7px solid darkcyan;
   }
 
   @media screen and (max-width: 720px) {
+
     .main{
       width: 90%;
       padding-top: 90px;

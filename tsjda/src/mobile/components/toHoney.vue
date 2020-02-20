@@ -6,7 +6,7 @@
         <div class="button-group">
           <li><h3><router-link :to="{name: 'me'}" :class="{navActive:isActive[0]}">About Me</router-link></h3></li>
           <li><h3><router-link :to="{name: 'pages'}" :class="{navActive:isActive[1]}">Articles</router-link></h3></li>
-          <li><h3><router-link :to="{name: 'me'}" :class="{navActive:isActive[2]}">
+          <li><h3><router-link :to="{name: 'contact'}" :class="{navActive:isActive[2]}">
             Contact <i class="el-icon-paperclip"></i></router-link>
           </h3></li>
         </div>
@@ -87,7 +87,7 @@
                         this.isActive = [false, true, false]
                     } else if (val.name === "me") {
                         this.isActive = [true, false, false]
-                    } else if (val.name === "Contact") {
+                    } else if (val.name === "contact") {
                         this.isActive = [false, false, true]
                     }
                 },

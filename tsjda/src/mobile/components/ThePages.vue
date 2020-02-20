@@ -148,7 +148,10 @@
             changeToMDY(value){
                 return new Date(value).toString().split(" ").slice(0,4).join(" ")
             }
-        }
+        },
+        created(){
+            document.title = "博客清单"
+        },
     }
 </script>
 

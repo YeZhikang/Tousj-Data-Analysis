@@ -7,7 +7,7 @@
           <h1>Hey,我是叶志康</h1>
           <p>我是一个前端开发者，爱好编程。对 <code class="pjfont">JavaScript</code> , <code class="pjfont">Python</code> , <code class="pjfont">Node.js</code> 很感兴趣。</p>
           <div style="margin-top: 24px">
-            <el-button @click="urlRedirect('/')" type="primary" size="mini">Vision DataAnalysis <i class="el-icon-search"></i></el-button>
+            <el-button @click="urlRedirect({name:'MobileIndex'})" type="primary" size="mini">Vision DataAnalysis <i class="el-icon-search"></i></el-button>
               <el-button type="warning" size="mini" @click="urlRedirect({name:'me'})">About Me</el-button>
           </div>
         </div>
@@ -90,6 +90,9 @@
                 this.$router.push(obj)
             },
 
+        },
+        created(){
+            document.title = "叶志康的博客"
         },
         mounted() {
             this.getAllArticleInfo();

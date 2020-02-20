@@ -14,7 +14,7 @@
           <p>一个正在不断书写和完善的清单</p>
           <ul>
             <li><a class="pjfont" href="https://github.com/YeZhikang/Vue-Express-CnBlogsFunc">仿写CnBlogs</a> - 对 CnBlogs 论坛的主要功能进行复写，了解论坛机制和路由定向</li>
-            <li><a class="pjfont" href="/">透视镜数据分析平台</a> - 基于 Pandas 及 Scrpay 的 Web 数据抓取、分析平台</li>
+            <li><a class="pjfont" href="/#/m/main/index">透视镜数据分析平台</a> - 基于 Pandas 及 Scrpay 的 Web 数据抓取、分析平台</li>
             <li><a class="pjfont" href="/#/illness">Illness 疫情平台</a> - 新型冠状病毒疫情即时响应</li>
           </ul>
         </div>
@@ -42,7 +42,15 @@
     import EndFooter from "../../components/EndFooter";
     export default {
         name: "AboutMe",
-        components: {EndFooter, ToHoney}
+        components: {EndFooter, ToHoney},
+        data(){
+          return{
+
+          }
+        },
+        created(){
+            document.title = "关于我"
+        },
     }
 </script>
 

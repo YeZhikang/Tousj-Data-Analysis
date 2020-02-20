@@ -46,6 +46,7 @@ import TheArticles from "../pages/TheArticles";
 import Illness from "../mobile/pages/Illness";
 import AboutMe from "../mobile/components/AboutMe";
 import ThePages from "../mobile/components/ThePages";
+import ContactMe from "../mobile/components/ContactMe";
 
 Vue.use(Router)
 
@@ -338,6 +339,11 @@ export default new Router({
       name: 'pages',
       path: '/pages',
       component: ThePages
+    },
+    {
+      name: "contact",
+      path: "/contact",
+      component: ContactMe
     }
   ]
 })
