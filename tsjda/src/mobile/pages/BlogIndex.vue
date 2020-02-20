@@ -108,6 +108,7 @@
     width: calc( 60% + (1440px - 100%)/3)  ;
     margin: auto;
     transition: 0.3s;
+    padding-bottom: 25px;
   }
   .welcome-block{
     padding-top: 240px;

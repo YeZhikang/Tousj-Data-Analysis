@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import {count,increaseCount,mu_increaseCount} from "./other";
 
 Vue.use(Vuex);
 const store = new Vuex.Store({
@@ -17,14 +17,17 @@ const store = new Vuex.Store({
       password:""
     },
     isMobile:false,
-    viewHistory:[]
+    viewHistory:[],
+    count
   },
   getters:{
     getBaseItem: state => {
       return state.baseItem
-    }
+    },
+
   },
   mutations:{
+    increaseCount,
     changeBaseItem( state,newItem){
       state.baseItem = newItem
     },
@@ -62,6 +65,7 @@ const store = new Vuex.Store({
     }
   },
   actions:{
+    mu_increaseCount,
     changeBaseItem(context,newItem){
       context.commit("changeBaseItem",newItem);
     },

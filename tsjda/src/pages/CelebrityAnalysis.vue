@@ -134,10 +134,10 @@
     import CaNav from "../components/CaNav";
     import AnalysisGraph from "../components/AnalysisGraph";
     import {Loading} from 'element-ui'
-    window.onresize = changeBlockWidth;
-    function changeBlockWidth() {
-        document.querySelector(".CAMain").style.width = document.body.clientWidth + "px"
-    }
+    // window.onresize = changeBlockWidth;
+    // function changeBlockWidth() {
+    //     document.querySelector(".CAMain").style.width = document.body.clientWidth + "px"
+    // }
 
     export default {
         name: "CelebrityAnalysis",

@@ -47,6 +47,7 @@ import Illness from "../mobile/pages/Illness";
 import AboutMe from "../mobile/components/AboutMe";
 import ThePages from "../mobile/components/ThePages";
 import ContactMe from "../mobile/components/ContactMe";
+import test from "../mobile/pages/test";
 
 Vue.use(Router)
 
@@ -344,6 +345,11 @@ export default new Router({
       name: "contact",
       path: "/contact",
       component: ContactMe
+    },
+    {
+      name: 't',
+      path: '/t',
+      component: test
     }
   ]
 })
