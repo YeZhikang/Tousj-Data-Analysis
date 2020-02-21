@@ -25,7 +25,7 @@
                 <h2>{{articleRes.file}}</h2>
                 <p>{{articleRes.time | changeToMDY}}</p>
               </div>
-              <div class="isnew"><el-tag type="warning" v-if="isNew(articleRes.time)">New</el-tag></div>
+              <div class="isnew" style="min-width: 48px"><el-tag type="warning" v-if="isNew(articleRes.time)">New</el-tag></div>
             </div>
           </div>
         </div>
@@ -247,6 +247,8 @@
     cursor: pointer;
   }
 
+
+
   .title-continue-isnew{
     width: calc(100% - 82px);
     padding-left: 20px;
@@ -262,6 +264,10 @@
 
   .title-continue h2{
     font-size: 18px;
+  }
+
+  .title-continue{
+    padding-right: 15px;
   }
 
   .title-continue p{

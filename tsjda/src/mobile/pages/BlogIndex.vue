@@ -29,7 +29,7 @@
           <div v-for="(article,index) in articleLst" :key="index" class="fa" style="margin-top: 25px">
 <!--            <img :src="article.img" alt="">-->
             <img :src="pngCate[article.category]" style="width: 33px">
-            <h4 style="width: 89%;padding-left: 15px;"><router-link class="rl" :to="{name:'articles',params:{hash:article.urlHash}}">{{article.file}}</router-link></h4>
+            <h4 style="width: 89%;padding: 0 15px;"><router-link class="rl" :to="{name:'articles',params:{hash:article.urlHash}}">{{article.file}}</router-link></h4>
             <el-tag class="isNew" type="warning">New</el-tag>
           </div>
         </div>
@@ -191,7 +191,9 @@
 
     .intro h1{
       font-size: 40px;
-      font-weight: 500;
+      font-weight: 700;
+      font-family: Arial;
+
     }
 
     .intro p{
