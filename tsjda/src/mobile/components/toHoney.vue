@@ -2,7 +2,7 @@
   <div>
     <div class="to-a">
       <ul>
-        <li><router-link :to="{name: 'blogIndex'}"><h2>🏡 Ye Zhikang</h2></router-link></li>
+        <li><router-link :to="{name: 'blogIndex'}"><h2><i class="el-icon-ice-cream"></i> Ye Zhikang</h2></router-link></li>
         <div class="button-group">
           <li><h3><router-link :to="{name: 'me'}" :class="{navActive:isActive[0]}">About Me</router-link></h3></li>
           <li><h3><router-link :to="{name: 'pages'}" :class="{navActive:isActive[1]}">Articles</router-link></h3></li>

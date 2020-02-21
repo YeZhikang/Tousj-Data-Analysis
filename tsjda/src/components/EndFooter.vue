@@ -106,8 +106,14 @@
     .imgLogo2{
 
     }
+    a{
+      font-size: 13px;
+      padding-right: 5px;
+    }
     .end{
-      padding:0 10px
+      padding:0 10px;
+      border-left: 5px solid darkcyan;
+
     }
     .end .pl25{
       padding-left: 10px;

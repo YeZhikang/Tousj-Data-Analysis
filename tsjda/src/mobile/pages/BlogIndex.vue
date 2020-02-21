@@ -30,7 +30,7 @@
 <!--            <img :src="article.img" alt="">-->
             <img :src="pngCate[article.category]" style="width: 33px">
             <h4 style="width: 89%;padding: 0 15px;"><router-link class="rl" :to="{name:'articles',params:{hash:article.urlHash}}">{{article.file}}</router-link></h4>
-            <el-tag class="isNew" type="warning">New</el-tag>
+            <div class="isnew" style="min-width: 48px"><el-tag type="warning" v-if="isNew(article.time)">New</el-tag></div>
           </div>
         </div>
       </div>
@@ -88,6 +88,9 @@
             },
             urlRedirect(obj){
                 this.$router.push(obj)
+            },
+            isNew(time){
+                return new Date() - new Date(time) < 100000000
             },
 
         },
