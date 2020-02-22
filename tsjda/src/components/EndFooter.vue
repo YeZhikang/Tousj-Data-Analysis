@@ -11,6 +11,7 @@
             <img src="../assets/github.svg" height="30px">
           </a>
         </div>
+
       </div>
     </div>
 </template>

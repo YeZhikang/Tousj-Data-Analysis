@@ -13,7 +13,7 @@
         </div>
         <div class="welcome-card">
           <el-card >
-            <img style="width: 80px;border-radius: 50%" src="../../assets/indexLogo.png">
+            <img style="width: 80px;border-radius: 50%" src="../../assets/indexLogo.png" >
             <h3>Ye Zhikang</h3>
             <p>我在这里撰写博客和分享笔记，不求能帮助别人，但希望能记录自己每天的日常，让自己踏踏实实地进步。</p>
             <el-button style="margin-top: 20px" size="mini" type="primary" plain>Follow</el-button>
