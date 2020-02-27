@@ -48,6 +48,8 @@ import AboutMe from "../mobile/components/AboutMe";
 import ThePages from "../mobile/components/ThePages";
 import ContactMe from "../mobile/components/ContactMe";
 import test from "../mobile/pages/test";
+import toHoneyIndex from "../pages/toHoneyIndex";
+import jsidajsidaisdj from "../mobile/components/jsidajsidaisdj";
 
 Vue.use(Router)
 
@@ -350,6 +352,11 @@ export default new Router({
       name: 't',
       path: '/t',
       component: test
-    }
+    },
+    {
+      name: 'to-honey',
+      path: '/to-honey',
+      component: toHoneyIndex
+    },
   ]
 })

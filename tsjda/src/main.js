@@ -62,7 +62,7 @@ router.beforeEach((to,from,next)=>{
   }
   const notRedirectUrlArr = [
     "register","index","login","NotLogin","MobileLogin","MobileIndex","MobileRegister",
-    "illness","me","pages","articles","blogIndex"
+    "illness","me","pages","articles","blogIndex","to-honey"
   ]
   if(!notRedirectUrlArr.includes(to.name)
   ){
