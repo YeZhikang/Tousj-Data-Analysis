@@ -4,9 +4,9 @@
       <el-header
         ref="header"
         class="mobile-header"
-        style="position: fixed;height: 100px;transition: 0.2s ease;margin-bottom: 35px;
+        style="position: fixed;height: 65px;margin-bottom: 35px;transition: 0.2s ease;
                  width: 100%;display: flex;align-items: center;
-                 justify-content: space-between;background-color: white;z-index: 2999"
+                 justify-content: space-between;background-color: white;z-index: 1200"
       >
         <img src="../../assets/faviconn3.png" style="height: 40px">
         <ul>
@@ -91,22 +91,32 @@
                 this.userName = ""
                 // this.$router.push({name:"login"})
             },
-            scrollToAddBoxShadow(){
-              let mobileHeader = document.querySelector(".mobile-header");
-              window.addEventListener('scroll',()=>{
-                  if(document.documentElement.scrollTop<45){
-                      mobileHeader.style.boxShadow = 'none'
-                      mobileHeader.style.height = '100px'
-                  }else{
-                      mobileHeader.style.boxShadow = '0 0 10px lightgray'
-                      mobileHeader.style.height = '55px'
-                  }
-              },false)
+            debounce(func,delay){
+                var timer;
+                return function () {
+                    let ctx = this
+                    let args = arguments;
+                    clearTimeout(timer)
+                    timer = setTimeout(() => {
+                        func(args,ctx)
+                    },delay)
+                }
+            },
+            checkToShadow(){
+                function turnToShadow() {
+                    let header = document.getElementsByClassName("mobile-header")[0];
+                    if(document.documentElement.scrollTop > 60) {
+                        header.style.boxShadow = "0 0 10px lightgray"
+                    }else{
+                        header.style.boxShadow = "none"
+                    }
+                }
+                window.addEventListener("scroll",this.debounce(turnToShadow,300))
             },
         },
         mounted(){
             this.changeNavColor();
-            this.scrollToAddBoxShadow();
+            this.checkToShadow();
         },
         watch:{
             $route:{
