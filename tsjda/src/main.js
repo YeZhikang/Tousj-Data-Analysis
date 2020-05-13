@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = 'http://121.43.155.100:8081/';
+axios.defaults.baseURL = 'https://www.yezhikang.site:8081/';
 Vue.prototype.$axios = axios;
 Vue.prototype.$marked = marked;
 Vue.prototype.$echarts = echarts;
@@ -62,7 +62,7 @@ router.beforeEach((to,from,next)=>{
   }
   const notRedirectUrlArr = [
     "register","index","login","NotLogin","MobileLogin","MobileIndex","MobileRegister",
-    "illness","me","pages","articles","blogIndex","to-honey"
+    "illness","me","pages","articles","blogIndex","to-honey","contact",'mis-homework-front-ground','mis-homework-back-ground','mis-homework-back-ground-all','mis-homework-back-ground-edit','mis-homework-back-ground-create'
   ]
   if(!notRedirectUrlArr.includes(to.name)
   ){

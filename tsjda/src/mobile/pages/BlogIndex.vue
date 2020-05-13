@@ -34,7 +34,13 @@
           </div>
         </div>
       </div>
-      <end-footer id="footer"></end-footer>
+      <end-footer id="footer">
+        <template v-slot:ip>
+          <div style="margin:60px 0 10px 150px;text-align:right;padding-top: 15px">
+            <a href="http://www.beian.miit.gov.cn" class="pjfont" style="font-size: 12px;margin-top: 40px">浙ICP备 19033933号-2</a>
+          </div>
+        </template>
+      </end-footer>
     </div>
   </div>
 </template>

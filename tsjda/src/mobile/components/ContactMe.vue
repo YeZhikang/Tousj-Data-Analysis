@@ -3,7 +3,7 @@
       <to-honey></to-honey>
       <div class="main-body">
         <h1>Contact</h1>
-        <p>Hi,我是叶志康，一个前端开发者，爱好编程。对对 <code class="pjfont">JavaScript</code> , <code class="pjfont">Python</code> , <code class="pjfont">Node.js</code> 很感兴趣。</p>
+        <p>Hi,我是叶志康，一个前端开发者，爱好编程。对 <code class="pjfont">JavaScript</code> , <code class="pjfont">Python</code> , <code class="pjfont">Node.js</code> 很感兴趣。</p>
         <p>Stay Hungry,Stay Foolish.由于学习计算机知识的时间较短，目前的知识储备尚且粗浅；博客中若有疏漏，敬请谅解。除此之外我一直在努力学习，在自学、分享经验中乐此不疲。如果你想了解我更多，或是有需要进行沟通，我很乐意与你获得联系！
           👇 以下是我的微信号</p>
         <div class="imgLogo" style="text-align: center;">

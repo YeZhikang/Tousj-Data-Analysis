@@ -30,7 +30,7 @@
         <el-upload
           class="upload-demo"
           drag
-          action="http://121.43.155.100:8081/mdUpload"
+          action="https://www.yezhikang.site:8081/mdUpload"
           multiple
           :on-success="fileUploadSuccess">
           <div>

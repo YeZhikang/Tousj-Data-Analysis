@@ -1,97 +1,42 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from "../pages/Index";
-import Da from "../pages/Da";
-import CodeTest from "../pages/CodeTest";
-import TheBackground from "../pages/TheBackground";
-import CelebrityAnalysis from "../pages/CelebrityAnalysis";
-import DataCount from "../components/DataCount";
-import HistoryBlog from "../components/CelebrityAnalysis/HistoryBlog";
-import BlogerSearch from "../components/CelebrityAnalysis/BlogerSearch";
-import SinaRank from "../components/CelebrityAnalysis/SinaRank";
-import BloggerRank from "../components/CelebrityAnalysis/BloggerRank";
-import AdvRank from "../components/CelebrityAnalysis/AdvRank";
-import GoodsSearch from "../components/CelebrityAnalysis/GoodsSearch";
-import RetailersData from "../components/CelebrityAnalysis/RetailersData";
-import GoodsRank from "../components/CelebrityAnalysis/GoodsRank";
-import CelebrityRank from "../components/CelebrityAnalysis/CelebrityRank";
-import GroupPurchaseRank from "../components/CelebrityAnalysis/GroupPurchaseRank";
-import SinaMonitor from "../components/CelebrityAnalysis/SinaMonitor";
-import PersonalCentre from "../components/CelebrityAnalysis/PersonalCentre";
-import DataAnalysis from "../components/CelebrityAnalysis/DataAnalysis";
-import HistoryAdvBlog from "../components/CelebrityAnalysis/HistoryAdvBlog";
-import FansPortrait from "../components/CelebrityAnalysis/FansPortrait";
-import SimilarBlogger from "../components/CelebrityAnalysis/SimilarBlogger";
-import LoginRegister from "../pages/LoginRegister";
-import TheLogin from "../components/UserMonitor/TheLogin";
-import TheRegister from "../components/UserMonitor/TheRegister";
-import NotLogin from "../pages/NotLogin";
-import MobileLogReg from "../mobile/pages/MobileLogReg";
-import MobileLogin from "../mobile/components/MobileLogin";
-import MobileIndex from "../mobile/components/MobileIndex";
-import MobileMainBody from "../mobile/components/MobileMainBody";
-import MobileCelebrityAnalysis from "../mobile/components/MobileCelebrityAnalysis";
-import MobileBloggerSearch from "../mobile/components/MobileBloggerSearch";
-import MobileDataCount from "../mobile/components/MobileDataCount";
-import MobileDataAnalysis from "../mobile/components/MobileDataAnalysis";
-import MobileFansPortrait from "../mobile/components/MobileFansPortrait";
-import MobileHistoryBlog from "../mobile/components/MobileHistoryBlog";
-import MobileRegister from "../mobile/components/MobileRegister";
-import UserIndex from "../mobile/components/UserIndex";
-import NotFound from "../pages/NotFound";
-import toHoney from "../mobile/components/toHoney";
-import BlogIndex from "../mobile/pages/BlogIndex";
-import writeMarkdown from "../mobile/pages/writeMarkdown";
-import TheArticles from "../pages/TheArticles";
-import Illness from "../mobile/pages/Illness";
-import AboutMe from "../mobile/components/AboutMe";
-import ThePages from "../mobile/components/ThePages";
-import ContactMe from "../mobile/components/ContactMe";
-import test from "../mobile/pages/test";
-import toHoneyIndex from "../pages/toHoneyIndex";
-import jsidajsidaisdj from "../mobile/components/jsidajsidaisdj";
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/index',
       name: 'index',
-      component: Index
+      component: () => import('../pages/Index.vue')
     },
     {
       path: '/sign',
       name: 'sign',
-      component: LoginRegister,
+      component: () => import('../pages/LoginRegister'),
       redirect:'/sign/login',
       children:[
         {
           path:'/sign/login',
           name:'login',
-          component:TheLogin
+          component: () => import('../components/UserMonitor/TheLogin'),
         },
         {
           path: '/sign/register',
           name: 'register',
-          component:TheRegister
+          component: () => import('../components/UserMonitor/TheRegister')
         }
       ]
     },
     {
       path: '/da',
       name: 'da',
-      component: Da
-    },
-    {
-      path:'/testCode',
-      name:'tc',
-      component:TheBackground
+      component: () => import('../pages/Da')
     },
     {
       path:'/celebrityAnalysis',
       name:'celebrityAnalysis',
-      component:CelebrityAnalysis,
+      component: () => import('../pages/CelebrityAnalysis'),
       alias:'/网红价值',
       redirect:{
         name: "博主搜索"
@@ -100,38 +45,38 @@ export default new Router({
         {
           name: '博主搜索',
           path: '/celebrityAnalysis/博主搜索',
-          component: BlogerSearch
+          component: () => import('../components/CelebrityAnalysis/BlogerSearch')
         },
         {
           name: '数据分析',
           path: '/celebrityAnalysis/数据分析',
-          component:DataAnalysis,
+          component: () => import('../components/CelebrityAnalysis/DataAnalysis'),
           redirect: '/celebrityAnalysis/数据分析/数据统计',
           children:[
             {
               name:'数据统计',
               path: '/celebrityAnalysis/数据分析/数据统计',
-              component: DataCount
+              component: () => import('../components/DataCount'),
             },
             {
               name:'历史微博',
               path: '/celebrityAnalysis/数据分析/历史微博',
-              component: HistoryBlog
+              component: () => import('../components/CelebrityAnalysis/HistoryBlog')
             },
             {
               name:'历史广告微博',
               path: '/celebrityAnalysis/数据分析/历史广告微博',
-              component: HistoryAdvBlog
+              component: () => import('../components/CelebrityAnalysis/HistoryAdvBlog')
             },
             {
               name:'粉丝画像',
               path: '/celebrityAnalysis/数据分析/粉丝画像',
-              component:FansPortrait
+              component: () => import('../components/CelebrityAnalysis/FansPortrait')
             },
             {
               name:'相似博主',
               path: '/celebrityAnalysis/数据分析/相似博主',
-              component: SimilarBlogger
+              component: () => import('../components/CelebrityAnalysis/SimilarBlogger')
             }
           ]
         },
@@ -141,17 +86,17 @@ export default new Router({
           redirect: {
             name: '博主影响力排行榜'
           },
-          component: SinaRank,
+          component: () => import("../components/CelebrityAnalysis/SinaRank"),
           children:[
             {
               name:'博主影响力排行榜',
               path: '/celebrityAnalysis/微博排行榜/博主影响力排行榜',
-              component:BloggerRank
+              component: () => import('../components/CelebrityAnalysis/BloggerRank')
             },
             {
               name:'广告微博排行榜',
               path: '/celebrityAnalysis/微博排行榜/广告微博排行榜',
-              component:AdvRank
+              component: () => import("../components/CelebrityAnalysis/AdvRank")
             },
           ]
         },
@@ -161,93 +106,66 @@ export default new Router({
           redirect: {
             name: "商品搜索"
           },
-          component: RetailersData,
+          component: () => import("../components/CelebrityAnalysis/RetailersData"),
           children:[
             {
               name: '商品搜索',
               path: '/celebrityAnalysis/电商数据分析/商品搜索',
-              component: GoodsSearch
+              component: () => import("../components/CelebrityAnalysis/GoodsSearch")
             },
             {
               name: '商品排行榜',
               path: '/celebrityAnalysis/电商数据分析/商品排行榜',
-              component: GoodsRank
+              component: () => import("../components/CelebrityAnalysis/GoodsRank")
             },
             {
               name: '电商达人排行榜',
               path: '/celebrityAnalysis/电商数据分析/电商达人排行榜',
-              component:CelebrityRank
+              component: () => import("../components/CelebrityAnalysis/CelebrityRank")
             },
             {
               name: '团购排行榜',
               path: '/celebrityAnalysis/电商数据分析/团购排行榜',
-              component:GroupPurchaseRank
+              component: () => import("../components/CelebrityAnalysis/GroupPurchaseRank")
             }
           ]
         },
         {
           name: "微博监控",
           path: "/celebrityAnalysis/微博监控",
-          component: SinaMonitor
+          component: () => import("../components/CelebrityAnalysis/SinaMonitor")
         },
         {
           name: "个人中心",
           path: "/celebrityAnalysis/个人中心",
-          component: PersonalCentre
+          component: () => import("../components/CelebrityAnalysis/PersonalCentre")
         }
       ],
-      // children:[
-      //   {
-      //     name: '数据统计',
-      //     path: '/celebrityAnalysis/数据统计',
-      //     component:DataCount
-      //   },
-      //   {
-      //     name: '历史微博',
-      //     path: '/celebrityAnalysis/历史微博',
-      //     component:HistoryBlog
-      //   },
-      //   {
-      //     name: '历史广告微博',
-      //     path: '/celebrityAnalysis/历史广告微博',
-      //     component:HistoryBlog
-      //   },
-      //   {
-      //     name: '粉丝画像',
-      //     path: '/celebrityAnalysis/粉丝画像',
-      //     component:HistoryBlog
-      //   },
-      //   {
-      //     name: '相似博主',
-      //     path: '/celebrityAnalysis/相似博主',
-      //     component:HistoryBlog
-      //   },
-      // ]
     },
     {
       name:"NotLogin",
-      component:NotLogin,
+      component: () => import("../pages/NotLogin"),
       path:"/NotLogin"
     },
     {
       name:"NotFound",
-      component:NotFound,
+      component: () => import("../pages/NotFound"),
       path:"/NotFound"
     },
     {
       name:"MobileSign",
       path:"/m/sign",
-      component: MobileLogReg,
+      component: () => import('../mobile/pages/MobileLogReg'),
       redirect:"/m/sign/login",
       children:[
         {
           name:"MobileLogin",
-          component:MobileLogin,
+          component: () => import( "../mobile/components/MobileLogin"),
           path: "/m/sign/login"
         },
         {
           name:"MobileRegister",
-          component:MobileRegister,
+          component: () => import("../mobile/components/MobileRegister"),
           path: "/m/sign/register"
         }
       ]
@@ -255,7 +173,7 @@ export default new Router({
     {
       name:"MobileMainBody",
       path:"/m/main",
-      component:MobileMainBody,
+      component: () => import("../mobile/components/MobileMainBody"),
       redirect: {
         name: "MobileIndex"
       },
@@ -263,12 +181,12 @@ export default new Router({
         {
           name: "MobileIndex",
           path:"/m/main/index",
-          component:MobileIndex
+          component: () => import('../mobile/components/MobileIndex')
         },
         {
           name: "MobileCelebrityAnalysis",
           path: "/m/main/celebrityAnalysis",
-          component:MobileCelebrityAnalysis,
+          component: () => import('../mobile/components/MobileCelebrityAnalysis'),
           redirect:{
             name: "手机端博主搜索"
           },
@@ -276,12 +194,12 @@ export default new Router({
             {
               path:"/m/main/celebrityAnalysis/博主搜索",
               name: "手机端博主搜索",
-              component:MobileBloggerSearch
+              component: () => import("../mobile/components/MobileBloggerSearch")
             },
             {
               path:"/m/main/celebrity/Analysis/数据统计",
               name: "手机端数据统计",
-              component: MobileDataCount,
+              component: () => import("../mobile/components/MobileDataCount"),
               redirect:{
                 name: "手机端数据分析"
               },
@@ -289,17 +207,17 @@ export default new Router({
                 {
                   path:"/m/main/celebrityAnalysis/数据统计/手机端数据分析",
                   name: "手机端数据分析",
-                  component:MobileDataAnalysis
+                  component: () => import("../mobile/components/MobileDataAnalysis")
                 },
                 {
                   path:"/m/main/celebrityAnalysis/数据统计/手机端历史微博",
                   name: "手机端历史微博",
-                  component:MobileHistoryBlog
+                  component: () => import("../mobile/components/MobileHistoryBlog")
                 },
                 {
                   path:"/m/main/celebrityAnalysis/数据统计/手机端粉丝画像",
                   name: "手机端粉丝画像",
-                  component:MobileFansPortrait
+                  component: () => import("../mobile/components/MobileFansPortrait")
                 }
               ]
             }
@@ -308,55 +226,80 @@ export default new Router({
         {
           name: "MobileUserIndex",
           path:"/m/main/userIndex",
-          component:UserIndex
+          component: () => import("../mobile/components/UserIndex")
         },
 
       ]
     },
     {
       name: "blogIndex",
-      path: '/blogIndex',
-      component: BlogIndex
+      path: '/',
+      component: () => import("../mobile/pages/BlogIndex")
     },
     {
       name: "write",
       path: '/write',
-      component: writeMarkdown
+      component: () => import("../mobile/pages/writeMarkdown")
     },
     {
       name: "articles",
       path: '/articles/:hash',
-      component:TheArticles
+      component: () => import("../pages/TheArticles")
     },
     {
       name: 'illness',
       path: '/illness',
-      component: Illness
+      component: () => import("../mobile/pages/Illness")
     },
     {
       name: 'me',
       path: '/me',
-      component: AboutMe
+      component: () => import("../mobile/components/AboutMe")
     },
     {
       name: 'pages',
       path: '/pages',
-      component: ThePages
+      component: () => import("../mobile/components/ThePages")
     },
     {
       name: "contact",
       path: "/contact",
-      component: ContactMe
-    },
-    {
-      name: 't',
-      path: '/t',
-      component: test
+      component: () => import("../mobile/components/ContactMe")
     },
     {
       name: 'to-honey',
       path: '/to-honey',
-      component: toHoneyIndex
+      component: () => import("../pages/toHoneyIndex")
     },
+    {
+      name: 'mis-homework-front-ground',
+      path: '/mis-homework/front-ground',
+      component: () => import('../pages/int-management-homework/FrontGround')
+    },
+    {
+      name: 'mis-homework-back-ground',
+      path: '/mis-homework/back-ground',
+      component: () => import('../pages/int-management-homework/BackGround'),
+      redirect: {
+        name: 'mis-homework-back-ground-all'
+      },
+      children:[
+        {
+          name: 'mis-homework-back-ground-all',
+          path: '/mis-homework/back-ground/all',
+          component: () => import('../pages/int-management-homework/AllNews')
+        },
+        {
+          name: 'mis-homework-back-ground-edit',
+          path: '/mis-homework/back-ground/edit',
+          component: () => import('../pages/int-management-homework/EditNews')
+        },
+        {
+          name: 'mis-homework-back-ground-create',
+          path: '/mis-homework/back-ground/create',
+          component: () => import('../pages/int-management-homework/CreateNews')
+        }
+      ]
+    }
   ]
 })

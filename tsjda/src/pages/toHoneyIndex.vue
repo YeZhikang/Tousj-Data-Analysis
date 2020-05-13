@@ -7,7 +7,7 @@
             <div class="add" >
               <el-upload
                 :on-success="fileUploadSuccess"
-                action="http://121.43.155.100:8081/uploadImage"
+                action="https://www.yezhikang.site:8081/uploadImage"
                 list-type="picture-card"
                 :on-preview="handlePictureCardPreview"
                 :on-remove="handleRemove">
@@ -271,7 +271,7 @@
             },
             getAllImages(){
                 this.$axios.get('/getImages').then(res => {
-                    let srcs = res.data.dirs.map( item => `http://121.43.155.100:8081/static/${item}`)
+                    let srcs = res.data.dirs.map( item => `https://www.yezhikang.site:8081/static/${item}`)
                     this.picturesUrl = srcs;
                 }).catch(error => {
                     console.log(error)
@@ -286,7 +286,7 @@
             },
             fileUploadSuccess(res,file,fileList){
                 if(res.code === 200){
-                    this.newImgSrc.push('http://121.43.155.100:8081/static/'+res.filePath)
+                    this.newImgSrc.push('https://www.yezhikang.site:8081/static/'+res.filePath)
                     this.$message({
                         message: "上传成功",
                         type: "success"

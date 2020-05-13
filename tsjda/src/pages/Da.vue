@@ -22,7 +22,7 @@
             <el-upload
               class="upload-demo"
               drag
-              action="http://121.43.155.100:8081/fileUpload"
+              action="https://www.yezhikang.site:8081/fileUpload"
               accept="text/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
               :multiple="false"
               :on-success="fileUploadSuccess"

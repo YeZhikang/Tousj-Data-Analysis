@@ -10,6 +10,7 @@
               <span style="font-weight: 600;font-size: 15px"> share</span></span><br>
             <el-tag style="margin-top: 20px" type="primary" size="mini" plain>{{category}}</el-tag>
             <el-tag style="margin-top: 20px" type="warning" size="mini" plain>Blog</el-tag>
+            <el-tag v-if="userName=== 'super'" @click="deleteBlog()" type="danger" size="mini">删除博客</el-tag>
           </div>
         </div>
         <div class="htmlBlock" style="color: black" v-html="mdHtml" v-highlight></div>
@@ -55,6 +56,7 @@
                 title:"",
                 time:"",
                 category: "",
+                userName: localStorage.getItem('userName'),
                 pngCate:{
                     JavaScript,
                     Vue,
@@ -86,7 +88,18 @@
                 console.log(error)
             })
         },
-
+        methods:{
+            deleteBlog(){
+                this.$axios.post('/deleteBlog',{hash:this.$route.params.hash}).then(res => {
+                    if(res.data.code === 200){
+                        this.$message({
+                            type: 'success',
+                            message: '删除成功'
+                        })
+                    }
+                }).catch(error => console.log(error))
+            }
+        }
     }
 </script>
 
@@ -112,6 +125,17 @@
     font-size: 34px;
   }
 
+  .htmlBlock >>> p{
+    width: 100%;
+  }
+  .htmlBlock >>>img{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+
+  }
+
+
   >>>code:not(.hljs){
     display: inline;
     margin: 4px 0;
@@ -119,6 +143,42 @@
     padding: 4px 3px;
     border-radius: 5px;
   }
+
+  >>>table{
+    font-size: 12px;
+    margin: 0 auto;
+    width: calc(100%- 50px);
+    border: 1px solid lightgrey;
+    border-collapse:collapse;
+    overflow:auto
+  }
+
+
+  >>>thead{
+    width: calc(100%- 50px);
+    background-color: #f8f8f8;
+  }
+
+  >>>tr:nth-child(even){
+    background-color: #f8f8f8;
+  }
+
+  >>>td{
+    overflow: scroll;
+  }
+
+  >>>tr{
+    width: calc(100%- 50px);
+    line-height: 1.6;
+  }
+  >>>td,>>>th{
+    padding: 6px;
+
+    border: 1px solid lightgrey;
+
+  }
+
+
 
   /*>>>code:not(pre code){*/
   /*  display: inline;*/

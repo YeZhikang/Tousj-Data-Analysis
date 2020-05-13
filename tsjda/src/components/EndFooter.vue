@@ -11,8 +11,8 @@
             <img src="../assets/github.svg" height="30px">
           </a>
         </div>
-
       </div>
+      <slot name="ip"></slot>
     </div>
 </template>
 

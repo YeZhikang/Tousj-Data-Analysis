@@ -102,6 +102,9 @@
                 bottomShow:false
             }
         },
+        created(){
+            document.title = "透视镜"
+        },
         mounted(){
             if(this.$store.state.isMobile){
                 this.$router.push({name:"MobileIndex"})
